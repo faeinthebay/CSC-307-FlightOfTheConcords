@@ -1,0 +1,63 @@
+﻿Use case: Create new user account
+Actors: Customer
+
+
+Brief Description
+For a customer to view and book flights, they must create a user account.  The “Create new user account” enables a new customer to create an account so that they can begin using the airline software.
+
+
+Step-by-Step Description
+1. On the login page, the customer clicks “create new account”
+2. The customer will be directed to a new page.
+        2.1. On this new page, the customer must enter a username and password, as well as                  an email address that will be linked to the account.
+        2.2. After entering the relevant information, the customer clicks “create my account”
+      3. The customer must check their email and verify their account information
+
+
+
+
+Use case: Update flight status
+Actors: CAI Employee
+
+
+Brief Description
+The “Update flight status” use case enables CAI employees to edit the information for upcoming flights.
+
+
+Step-by-Step Description
+1. While logged onto an employee account, click the “browse flights” tab.
+2. Next to the desired flight, click the “modify flight information” button.
+3. Modify the relevant fields, then click “submit changes”.
+
+
+
+
+Use case: Purchase ticket(s)
+Actors: Customer
+
+
+Brief Description
+The “Purchase ticket(s)” use case enables customers to view flight information and purchase tickets for a specific flight.
+
+
+Step-by-Step Description
+1. After logging onto a user account, click the “browse flights” tab.
+2. Next to the desired flight, click “purchase tickets.”
+3. Enter the required fields (name, email, number of tickets, etc.)
+4. Click the “Verify ticket purchase” button.
+
+
+
+
+Use case: Check into flight
+Actors: Customer
+
+
+Brief Description
+The “Check into flight” use case enables customers to check into their flight within 24 hours of the flight departure.
+
+
+Step-by-Step Description
+1. While logged onto a user account, click the “check into flight” button.
+2. Enter the confirmation number and click “check in”.
+3. Enter required baggage information, check the “I understand” box under the baggage policy, and click “confirm check in”.
