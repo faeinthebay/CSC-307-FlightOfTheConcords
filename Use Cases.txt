@@ -54,7 +54,7 @@ Actors: Customer
 
 
 Brief Description
-The “Check into flight” use case enables customers to check into their flight within 24 hours of the flight departure.
+The “Check into flight” use case enables users to check into their flight within 24 hours of the flight departure.
 
 
 Step-by-Step Description
