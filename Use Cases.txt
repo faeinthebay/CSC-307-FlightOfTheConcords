@@ -54,12 +54,11 @@ Actors: Customer
 
 
 Brief Description
-The “Check into flight” use case enables customers to check into their flight within 24 hours of the flight departure.
+The “Check into flight” use case enables users to check into their flight within 24 hours of the flight departure.
 
 
 Step-by-Step Description
 1. While logged onto a user account, click the “check into flight” button.
 2. Enter the confirmation number and click “check in”.
 3. Enter required baggage information, check the “I understand” box under the baggage policy, and click “confirm check in”.
-
 EDIT: MIKE-DEV CHANGE TO BRANCH FOR LAB PRACTICE 7
