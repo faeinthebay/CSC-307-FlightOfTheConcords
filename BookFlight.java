@@ -2,6 +2,7 @@ public class BookFlight
 {
   private Flight flight;
   private int numSeats;
+  Reservation reservation;
   
   public BookFlight(Flight flight, int numSeats)
   {
@@ -9,11 +10,27 @@ public class BookFlight
     this.numSeats = numSeats;
   }
   
-  /*I don't know if we need this class, so I am holding off to edit more*/
-  
-  public int generateConfirmationNumber()
+  public boolean validReservation()
   {
-    //Create random confirmation number
-    //Needs to be saved in a booking
+    if(numSeats <= flight.getEmptySeats())
+    {
+      return true;
+    }
+    
+    return false;
   }
+  
+  public boolean createReservation(String reservationHolder)
+  {
+    if(validReservation())
+    {
+      flight.updateSeats(numSeats);
+      reservation = new Reservation(flight, reservationHolder, numSeats);
+      return true;
+    }
+    
+    return false;
+  }  
+  
+  /*Still need to handle seat numbers, names for group reservations*/
 }
