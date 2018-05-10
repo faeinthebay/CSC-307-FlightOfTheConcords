@@ -7,7 +7,7 @@ public class Reservation
   private int numSeats;
   private String reservationHolder;
   private String[] names;
-  private String[] seats;
+  private int[] seatNumbers;
   
   public Reservation(Flight flight, String reservationHolder, int numSeats)
   {
@@ -22,8 +22,6 @@ public class Reservation
     int temp = 0;
     temp = System.currentTimeMillis();
     confirmationNumber = temp;
-    /*Generate a random int*/
-    //confirmationNumber = randInt;
   }
   
   public int setNames(String[] names)
@@ -36,19 +34,24 @@ public class Reservation
     return 0;
   }
   
-  public int setSeats(String[] seats)
+  public int setSeats(int[] seatNumbers)
   {
-    if(seats.length != numSeats)
+    if(seatNumbers.length != numSeats)
     {
       return -1;
     }
-    this.seats = seats;
+    this.seatNumbers = seatNumbers;
     return 0;
   }
   
   public int getConfirmationNumber()
   {
     return confirmationNumber;
+  }
+
+  public void printConfirmationNumber()
+  {
+    System.out.println("Confirmation number: %d", confirmationNumber);
   }
   
   public Flight getFlight()
@@ -71,8 +74,8 @@ public class Reservation
     return names;
   }
   
-  public String[] getSeats()
+  public int[] getSeatNumbers()
   {
-    return seats;
+    return seatNumbers;
   }
 }
