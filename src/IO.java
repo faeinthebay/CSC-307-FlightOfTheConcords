@@ -56,7 +56,14 @@ public class IO {
 					int numSeats = sc.nextInt();
 					BookFlight bk = new BookFlight(db.flights.get(f), numSeats);
 					int conf = bk.reserve();
+					db.updateReservations();
 					System.out.println("Confirmation: " + conf);
+				} else if (a == 2) {
+					System.out.println("Enter your confirmation number: ");
+					int confNum = sc.nextInt();
+					CheckIn ch = new CheckIn(confNum);
+				} else if (a == 3) {
+
 				}
 			} else if (sc.hasNext()) {
 				char c = sc.next().charAt(0);
