@@ -1,2 +1,2 @@
-testcustomer	cpass	0
-testemployee	epass	1
+testcustomer cpass false
+testemployee epass true

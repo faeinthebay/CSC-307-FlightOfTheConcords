@@ -3,6 +3,8 @@ import java.io.*;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class DB {
 	
@@ -26,34 +28,37 @@ public class DB {
 		File rtFile;
 		Scanner routeSc;
 		routes = new ArrayList<Route>();
+		routes.add(0, new Route(0,0,"boom", "boom"));
 		int routeId;
 		String departDest;
 		String arriveDest;
 		int duration;
 		int basePrice;
-		/*try {
+
+		String line;
+		String[] toks;
+
+		try {
 			rtFile = new File("routes.txt");
 			routeSc = new Scanner(rtFile);
-			routeSc.useDelimiter("\t");
-			while (routeSc.hasNext()) {
-				routeId = routeSc.nextInt();
-				departDest = routeSc.next();
-				arriveDest = routeSc.next();
-				duration = routeSc.nextInt();
-				basePrice = routeSc.nextInt();
+			//routeSc.useDelimiter(" ");
+			while (routeSc.hasNextLine()) {
+				line = routeSc.nextLine();
+				//System.out.println(line);
+				toks = line.split(" ");
+				routeId = Integer.valueOf(toks[0]);
+				departDest = toks[1];
+				arriveDest = toks[2];
+				duration = Integer.valueOf(toks[3]);
+				basePrice = Integer.valueOf(toks[4]);
+				//System.out.println("before");
 				routes.add(routeId, new Route(duration, (float)basePrice, departDest, arriveDest));
+				//System.out.println("after");
 			}
 			routeSc.close();
 		} catch (Exception e) {
 
-		}*/
-		routeId = 0;
-		departDest = "SLO";
-		arriveDest = "LAX";
-		duration = 1;
-		basePrice = 40;
-		Route testRoute = new Route(duration, (float)basePrice, departDest, arriveDest);
-		routes.add(0, testRoute);
+		}
 	}
 
 	public void updateRoutes() {
@@ -75,30 +80,32 @@ public class DB {
 		File flFile;
 		Scanner flightSc;
 		flights = new ArrayList<Flight>();
+		flights.add(0, null);
 		int flightId;
 		int capacity;
 		int route;
 		int departTime;
-		/*try {
+
+		String line;
+		String[] toks;
+		try {
 			flFile = new File("flights.txt");
 			flightSc = new Scanner(flFile);
-			flightSc.useDelimiter("\t");
-			while (flightSc.hasNext()) {
-				flightId = flightSc.nextInt();
-				capacity = flightSc.nextInt();
-				route = flightSc.nextInt();
-				departTime = flightSc.nextInt();
+			//flightSc.useDelimiter("\t");
+			while (flightSc.hasNextLine()) {
+				line = flightSc.nextLine();
+				//System.out.println(line);
+				toks = line.split(" ");
+				flightId = Integer.valueOf(toks[0]);
+				capacity = Integer.valueOf(toks[1]);
+				route = Integer.valueOf(toks[2]);
+				departTime = Integer.valueOf(toks[3]);
 				flights.add(flightId, new Flight(capacity, routes.get(route), departTime));
 			}
 			flightSc.close();
 		} catch (Exception e) {
 
-		}*/
-		flightId = 0;
-		capacity = 40;
-		route = 0;
-		departTime = 6;
-		flights.add(flightId, new Flight(capacity, routes.get(route), departTime));
+		}
 	}
 
 	public void updateFlights() {
@@ -120,25 +127,31 @@ public class DB {
 		File rsFile;
 		Scanner reservationSc;
 		reservations = new ArrayList<Reservation>();
+		reservations.add(0, null);
 		int reservationId;
 		String reservationHolder;
 		int flightId;
 		int confirmationNum;
 		int numSeats;
 		String[] names;
-		/*try {
+
+		String line;
+		String[] toks;
+		try {
 			rsFile = new File("reservations.txt");
 			reservationSc = new Scanner(rsFile);
-			reservationSc.useDelimiter("\t");
-			while (reservationSc.hasNext()) {
-				reservationId = reservationSc.nextInt();
-				reservationHolder = reservationSc.next();
-				flightId = reservationSc.nextInt();
-				confirmationNum = reservationSc.nextInt();
-				numSeats = reservationSc.nextInt();
+			//reservationSc.useDelimiter("\t");
+			while (reservationSc.hasNextLine()) {
+				line = reservationSc.nextLine();
+				toks = line.split(" ");
+				reservationId = Integer.valueOf(toks[0]);
+				reservationHolder = toks[1];
+				flightId = Integer.valueOf(toks[2]);
+				confirmationNum = Integer.valueOf(toks[3]);
+				numSeats = Integer.valueOf(toks[4]);
 				names = new String[numSeats];
 				for (int i=0; i<numSeats; i++) {
-					names[i] = reservationSc.next();
+					names[i] = toks[i+5];
 				}
 				reservations.add(reservationId, new Reservation(flights.get(flightId), reservationHolder, numSeats));
 				reservations.get(reservationId).setNames(names);
@@ -147,77 +160,71 @@ public class DB {
 			reservationSc.close();
 		} catch (Exception e) {
 
-		}*/
-		reservationId = 0;
-		reservationHolder = "testcustomer";
-		flightId = 0;
-		confirmationNum = 1234567890;
-		numSeats = 2;
-		names = new String[numSeats];
-		names[0] = "seat1";
-		names[1] = "seat2";
-		
-		reservations.add(reservationId, new Reservation(flights.get(flightId), reservationHolder, numSeats));
-		reservations.get(reservationId).setNames(names);
-		reservations.get(reservationId).setConfirmationNumber(confirmationNum);
+		}
 	}
 
-	public void updateReservations() {
-		File rsFile;
+	public static void updateReservations() {
+		Writer rsFile;
 		PrintWriter rsWriter;
+		String line = "";
 		try {
-			rsFile = new File("reservations.txt");
-			rsWriter = new PrintWriter(rsFile);
+			rsFile = new FileWriter("reservations.txt", false);
+			//rsWriter = new PrintWriter(rsFile);
 			for (int i=1; i<reservations.size(); i++) {
-				rsWriter.printf("%d\t%s\t%d\t%d\t%d", i, reservations.get(i).getReservationHolder(), flights.indexOf(reservations.get(i).getFlight()), reservations.get(i).getConfirmationNumber(), reservations.get(i).getNumSeats());
-				for (int j=0; j<reservations.get(i).getNumSeats(); j++) {
-					rsWriter.printf("\t%s", reservations.get(i).getNames()[j]);
-				}
-				rsWriter.printf("\n");
+				line += Integer.toString(i) + " " + reservations.get(i).getReservationHolder() + " " + Integer.toString(flights.indexOf(reservations.get(i).getFlight())) + " " + Integer.toString(reservations.get(i).getConfirmationNumber()) + " " + Integer.toString(reservations.get(i).getNumSeats()) + "\n";
+			//	for (int j=0; j<reservations.get(i).getNumSeats(); j++) {
+			//		rsWriter.print(" " + reservations.get(i).getNames()[j]);
+			//	}
+			//	rsWriter.print("\n");
+			//	System.out.println("Hererere");
+
 			}
-			rsWriter.close();
+			rsFile.write(line);
+			//rsWriter.print("Hello");
+			//rsFile.write("Hi");
+
+			rsFile.close();
+			//rsWriter.close();
 		} catch (Exception e) {
 
 		}
-	}
+	}	
 
 	public User checkUser(String username, String password) {
 		Scanner accountSc;
 		File acFile;
 		String user;
 		String pass;
-		int empl;
+		String empl;
 		User acct = null;
 		boolean access = false;
-		/*try {
+		try {
 			acFile = new File("accounts.txt");
+			//System.out.println(acFile.getAbsolutePath());
 			accountSc = new Scanner(acFile);
-			accountSc.useDelimiter("\t");
+			accountSc.useDelimiter(" ");
 			while (accountSc.hasNext()) {
+				//System.out.println("Inside");
 				user = accountSc.next();
+				//System.out.println("Inside2 user:" + user);
 				pass = accountSc.next();
-				empl = accountSc.nextInt();
+				//System.out.println("Inside3 pass:" + pass);
+				//System.out.println("Inside3");
+				empl = accountSc.next();
+				//System.out.println("Inside4 empl:" + empl);
+				//System.out.println("Inside4");
+				//System.out.println(user + " " + pass);
 				if (user.equals(username) && pass.equals(password)) {
-					acct = new User(user, empl);
+					if (empl.equals("true")) {
+						acct = new User(user, 1);
+					}else {
+						acct = new User(user,0);
+					}
 				}
 			}
 			accountSc.close();
 		} catch (Exception e) {
 	
-		}*/
-		
-		user = "testcustomer";
-		pass = "cpass";
-		empl = 0;
-		if (user.equals(username) && pass.equals(password)) {
-			acct = new User(user, empl);
-		}
-		
-		user = "testemployee";
-		pass = "epass";
-		empl = 1;
-		if (user.equals(username) && pass.equals(password)) {
-			acct = new User(user, empl);
 		}
 			
 		return acct;
