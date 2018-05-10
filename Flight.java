@@ -26,7 +26,7 @@ public class Flight {
 		return emptySeats;
 	}
 
-	public int getRoute() {
+	public Route getRoute() {
 		return route;
 	}
 
@@ -39,7 +39,7 @@ public class Flight {
 	}
 	
 	public int getArrivalTime() {
-		return departTime + route.duration;
+		return departTime + route.getDuration();
 	}
 
 	public void updateSeats(int seats) {

@@ -1,4 +1,4 @@
-import java.util*;
+import java.util.*;
 
 public class Reservation
 {
@@ -55,7 +55,7 @@ public class Reservation
 
   public void printConfirmationNumber()
   {
-    System.out.println("Confirmation number: %d", confirmationNumber);
+    System.out.printf("Confirmation number: %d\n", confirmationNumber);
   }
   
   public Flight getFlight()
