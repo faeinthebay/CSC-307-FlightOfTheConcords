@@ -3,7 +3,7 @@ import java.lang;
 public class ModifyFlight
 {
 	//Gap required between landing and takeoff in minutes
-	private static final GAP = 40;
+	private static final int GAP = 40;
 	
 	//modifies the capacity of the flight
 	public void modifyCapacity(Flight flight, int newCapacity) {
