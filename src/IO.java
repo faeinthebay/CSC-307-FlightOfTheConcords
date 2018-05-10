@@ -61,6 +61,12 @@ public class IO {
 					System.out.println("Enter your confirmation number: ");
 					int confNum = sc.nextInt();
 					CheckIn ch = new CheckIn(confNum);
+					while(!ch.confirmCheckIn()) {
+						System.out.println("Enter your confirmation number: ");
+						confNum = sc.nextInt();
+						ch = new CheckIn(confNum);
+					}
+					System.out.println("You are checked in");
 				} 
         
         else if(a == 3)
