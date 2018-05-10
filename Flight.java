@@ -6,11 +6,13 @@ public class Flight {
 	private Route route;
 	private int departTime;
 	private float price;
+	private int arrivalTime;
 
 	public Flight(int capacity, Route route, int departTime) {
 		this.capacity = capacity;
 		this.route = route;
 		this.departTime = departTime;
+		this.price = route.basePrice;
 	}
 
 	public void calculatePrice() {
@@ -35,6 +37,10 @@ public class Flight {
 
 	public int getDepartTime() {
 		return departTime;
+	}
+	
+	public int getArrivalTime() {
+		return departTime + route.duration;
 	}
 
 	public void updateSeats(int seats) {
