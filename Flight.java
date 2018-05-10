@@ -1,4 +1,3 @@
-
 public class Flight {
 
 	private int capacity;
@@ -39,6 +38,14 @@ public class Flight {
 
 	public void updateSeats(int seats) {
 		emptySeats = emptySeats - seats;
+	}
+
+	public void updateCapacity(int newCapacity) {
+		capacity = capacity + newCapacity;
+	}
+
+	public void updateDT(int newTime) {
+		departTime = departTime + newTime;
 	}
 
 }
