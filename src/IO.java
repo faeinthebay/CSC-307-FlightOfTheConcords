@@ -36,6 +36,8 @@ public class IO {
 			db.createFlights();
 			db.createReservations();
 
+			boolean signedIn = true;
+			while (signedIn) {
 			System.out.println("Browse flights:");
 
 			for (int i=1; i<db.flights.size(); i++) {
@@ -53,14 +55,17 @@ public class IO {
 					System.out.println("How many seats do you want to book? ");
 					int numSeats = sc.nextInt();
 					BookFlight bk = new BookFlight(db.flights.get(f), numSeats);
+					int conf = bk.reserve();
+					System.out.println("Confirmation: " + conf);
 				}
 			} else if (sc.hasNext()) {
 				char c = sc.next().charAt(0);
 				if (c == 'q') {
 					//logout
+					signedIn = false;
 				}
 			}
-
+			}
 
 		} catch (Exception e) {
 
