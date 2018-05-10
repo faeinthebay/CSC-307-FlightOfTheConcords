@@ -30,7 +30,18 @@ public class BookFlight
     }
     
     return false;
-  }  
+  }
   
+  public void generateSeatNumbers()
+  {
+    int seatNumbersLeft = flight.getCapacity() - flight.getEmptySeats() + 1;
+    int[] seatNumbers;
+    for (int i = 0; i < numSeats; i++)
+    {
+      seatNumbers[i] = seatNumbersLeft;
+      seatNumbersLeft++;
+    }
+    reservation.setSeats(seatNumbers);
+  }
   /*Still need to handle seat numbers, names for group reservations*/
 }
