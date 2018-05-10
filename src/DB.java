@@ -155,26 +155,38 @@ public class DB {
 		} catch (Exception e) {
 
 		}
-	}
+	}	
 
 	public User checkUser(String username, String password) {
 		Scanner accountSc;
 		File acFile;
 		String user;
 		String pass;
-		int empl;
+		String empl;
 		User acct = null;
 		boolean access = false;
 		try {
 			acFile = new File("accounts.txt");
+			//System.out.println(acFile.getAbsolutePath());
 			accountSc = new Scanner(acFile);
-			accountSc.useDelimiter("\t");
+			accountSc.useDelimiter(" ");
 			while (accountSc.hasNext()) {
+				//System.out.println("Inside");
 				user = accountSc.next();
+				//System.out.println("Inside2 user:" + user);
 				pass = accountSc.next();
-				empl = accountSc.nextInt();
+				//System.out.println("Inside3 pass:" + pass);
+				//System.out.println("Inside3");
+				empl = accountSc.next();
+				//System.out.println("Inside4 empl:" + empl);
+				//System.out.println("Inside4");
+				//System.out.println(user + " " + pass);
 				if (user.equals(username) && pass.equals(password)) {
-					acct = new User(user, empl);
+					if (empl.equals("true")) {
+						acct = new User(user, 1);
+					}else {
+						acct = new User(user,0);
+					}
 				}
 			}
 			accountSc.close();
