@@ -31,17 +31,25 @@ public class DB {
 		String arriveDest;
 		int duration;
 		int basePrice;
+		String line;
+		String[] toks;
+
 		try {
 			rtFile = new File("routes.txt");
 			routeSc = new Scanner(rtFile);
-			routeSc.useDelimiter("\t");
-			while (routeSc.hasNext()) {
-				routeId = routeSc.nextInt();
-				departDest = routeSc.next();
-				arriveDest = routeSc.next();
-				duration = routeSc.nextInt();
-				basePrice = routeSc.nextInt();
+			//routeSc.useDelimiter(" ");
+			while (routeSc.hasNextLine()) {
+				line = routeSc.nextLine();
+				System.out.println(line);
+				toks = line.split(" ");
+				routeId = Integer.valueOf(toks[0]);
+				departDest = toks[1];
+				arriveDest = toks[2];
+				duration = Integer.valueOf(toks[3]);
+				basePrice = Integer.valueOf(toks[4]);
+				System.out.println("before");
 				routes.add(routeId, new Route(duration, (float)basePrice, departDest, arriveDest));
+				System.out.println("after");
 			}
 			routeSc.close();
 		} catch (Exception e) {
