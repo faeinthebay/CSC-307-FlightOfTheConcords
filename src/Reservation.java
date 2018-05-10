@@ -1,4 +1,4 @@
-import java.util*;
+import java.util.*;
 
 public class Reservation
 {
@@ -43,7 +43,11 @@ public class Reservation
     this.seatNumbers = seatNumbers;
     return 0;
   }
-  
+
+  public void setConfirmationNumber(int confNum) {
+    this.confirmationNumber = confNum;
+  }
+
   public int getConfirmationNumber()
   {
     return confirmationNumber;
@@ -51,7 +55,7 @@ public class Reservation
 
   public void printConfirmationNumber()
   {
-    System.out.println("Confirmation number: %d", confirmationNumber);
+    System.out.printf("Confirmation number: %d\n", confirmationNumber);
   }
   
   public Flight getFlight()
