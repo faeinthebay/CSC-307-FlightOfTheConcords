@@ -1,5 +1,7 @@
-import java.io.*;
-import java.util.*;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DB {
 	

@@ -1,31 +1,29 @@
-import java.lang;
-
 public class ModifyFlight
 {
 	//Gap required between landing and takeoff in minutes
-	private static final int GAP = 40;
+	private static final float GAP = 40;
 	
 	//modifies the capacity of the flight
 	public void modifyCapacity(Flight flight, int newCapacity) {
-		flight.capacity = newCapacity;
+		flight.updateCapacity(newCapacity);
 	}
 	
 	//modifies the route of the plane (simply WHICH route, not the route itself)
 	public void modifyRoute(Flight flight, Route newRoute) {
-		flight.route = newRoute;
+		flight.updateRoute(newRoute);
 	}
 	
-	public void modifyPrice(Flight flight, Price newPrice) {
-		flight.price = newPrice;
+	public void modifyPrice(Flight flight, float newPrice) {
+		flight.updatePrice(newPrice);
 	}
 	
 	//modifies departure time, only changes the departure time 
 	public void modifyDepartTime(Flight flight, int newDepartTime) {
-		if(timeConflict == false) 
-			flight.departTime = newDepartTime;
+		//if(timeConflict == false)
+			flight.updateDT(newDepartTime);
 		
-		else
-			System.out.println("New departure time too close to an arriving flight, no changes to departure time were made");
+		//else
+			//System.out.println("New departure time too close to an arriving flight, no changes to departure time were made");
 	}
 	
 	public boolean timeConflict(ArrayList<Flight>[] flight, int NewDepartTime) {
@@ -44,5 +42,3 @@ public class ModifyFlight
 		
 		return false;
 	}
-	
-}

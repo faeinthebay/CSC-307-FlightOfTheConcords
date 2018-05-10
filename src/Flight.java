@@ -11,11 +11,16 @@ public class Flight {
 		this.capacity = capacity;
 		this.route = route;
 		this.departTime = departTime;
-		this.price = route.basePrice;
+		this.price = route.getBasePrice();
 	}
 
 	public void calculatePrice() {
 		price = Calculate_Price.calculate(route, emptySeats);
+	}
+	
+	public void updatePrice(float newPrice) {
+		/*Eventually delete this method*/
+		price = newPrice;
 	}
 
 	public int getCapacity() {
@@ -52,6 +57,10 @@ public class Flight {
 
 	public void updateDT(int newTime) {
 		departTime = departTime + newTime;
+	}
+	
+	public void updateRoute(Route newRoute) {
+		route = newRoute;
 	}
 
 }
