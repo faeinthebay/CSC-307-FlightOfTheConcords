@@ -1,3 +1,5 @@
+import java.util*;
+
 public class Reservation
 {
   private int confirmationNumber;
@@ -17,6 +19,9 @@ public class Reservation
   
   private void generateConfirmationNumber()
   {
+    int temp = 0;
+    temp = System.currentTimeMillis();
+    confirmationNumber = temp;
     /*Generate a random int*/
     //confirmationNumber = randInt;
   }
