@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class BookFlight
 {
   private Flight flight;
@@ -42,6 +44,24 @@ public class BookFlight
       seatNumbersLeft++;
     }
     reservation.setSeats(seatNumbers);
+  }
+
+  public int reserve()
+  {
+    Scanner sc = new Scanner(System.in);
+    String reservationHolder;
+    int reserveSeats;
+
+    System.out.print("Enter your name: ");
+    reservationHolder = sc.next();
+    System.out.println();
+    
+    System.out.print("Enter the number of seats you would like to reserve: ");
+    reserveSeats = sc.nextInt();
+    System.out.println();
+
+    reservation = new Reservation(flight, reservationHolder, reserveSeats);
+    return reservation.getConfirmationNumber();
   }
   /*Still need to handle seat numbers, names for group reservations*/
 }
