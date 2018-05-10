@@ -2,6 +2,7 @@ import java.io.*;
 
 public class IO {
 
+
 	public static void main(String args[]) {
 		Scanner sc;
 		String user;
@@ -29,9 +30,10 @@ public class IO {
 				}
 			}
 
-			//create route and flight arrays
+			//create route and flight and reservation arrays
 			db.createRoutes();
 			db.createFlights();
+			db.createReservations();
 
 			System.out.println("Browse flights:");
 

@@ -43,6 +43,10 @@ public class Reservation
     this.seatNumbers = seatNumbers;
     return 0;
   }
+
+  public void setConfirmationNumber(int confNum) {
+    this.confirmationNumber = confNum;
+  }
   
   public int getConfirmationNumber()
   {

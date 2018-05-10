@@ -1,8 +1,12 @@
+import java.io.*;
+import java.ArrayList;
+
 public class DB {
 	
 	private DB db = NULL;
 	public Route[] routes;
 	public ArrayList<Flight>[] flights;
+	public ArrayList<Reservation>[] reservations;
 
 	private DB() {
 
@@ -36,6 +40,7 @@ public class DB {
 				basePrice = routeSc.nextInt();
 				routes[routeId] = new Route(duration, departDest, arriveDest, basePrice);
 			}
+			routeSc.close();
 		} catch (Exception e) {
 
 		}	
@@ -75,6 +80,7 @@ public class DB {
 				departTime = flightSc.nextInt();
 				flights.add(flightId, new Flight(capacity, route, routes[route], departTime));
 			}
+			flightSc.close();
 		} catch (Exception e) {
 
 		}	
@@ -88,6 +94,59 @@ public class DB {
 			flWriter = new PrintWriter(flFile);
 			for (int i=1; i<flights.size(); i++) {
 				flWriter.printf("%d\t%d\t%d\t%d\n", i, flights.get(i).getCapacity(), flights.get(i).getRouteID(), flights.get(i).getDepartTime());
+			}
+			flWriter.close();
+		} catch (Exception e) {
+
+		}	
+	}
+
+	public static void createReservations() {
+		File rsFile;
+		Scanner reservationSc;
+		reservations = new ArrayList<Reservation>();
+		int reservationId;
+		String reservationHolder;
+		int flightId;
+		int confirmationNum;
+		int numSeats;
+		String[] names;
+		try {
+			rsFile = new File("reservations.txt");
+			reservationSc = new Scanner(rsFile);
+			reservationSc.userDelimiter("\t");
+			while (reservationSc.hasNext()) {
+				reservationId = reservationSc.nextInt();
+				reservationHolder = reservationSc.next();
+				flightId = reservationSc.nextInt();
+				confirmationNum = reservationSc.next();
+				numSeats = reservationSc.nextInt();
+				names = new String[numSeats];
+				for (int i=0; i<numSeats; i++) {
+					names[i] = reservationSc.next();
+				}
+				reservations.add(reservationId, new Reservation(flights.get(flightId), reservationHolder, numSeats));
+				reservatons.get(reservationId).setNames(names);
+				reservatons.get(reservationId).setConfirmationNumber(confirmationNum);
+			}
+			reservationSc.close();
+		} catch (Exception e) {
+
+		}
+	}
+
+	public static void updateReservations() {
+		File rsFile;
+		PrintWriter rsWriter;
+		try {
+			rsFile = new File("reservations.txt");
+			rsWriter = new PrintWriter(rsFile);
+			for (int i=1; i<reservations.size(); i++) {
+				rsWriter.printf("%d\t%s\t%d\t%d\t%d", i, reservations.get(i).getReservtionHolder(), flights.indexOf(reservations.get(i).getFlight()), reservations.get(i).getConfirmationNumber(), reservations.get(i).getNumSeats());
+				for (int j=0; j<reservations.get(i).getNumSeats(); j++) {
+					rsWriter.printf("\t%s", reservations.get(i).getNames()[j]);
+				}
+				rsWriter.printf("\n");
 			}
 			flWriter.close();
 		} catch (Exception e) {
