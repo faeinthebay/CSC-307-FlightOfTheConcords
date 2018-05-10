@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 public class IO {
@@ -50,7 +49,7 @@ public class IO {
 
 			if (sc.hasNextInt()) {
 				int f = sc.nextInt();
-				int a = sc.nextInt();
+				int a = sc.nextInt();      
 				if (a == 1) {
 					System.out.println("How many seats do you want to book? ");
 					int numSeats = sc.nextInt();
@@ -62,9 +61,52 @@ public class IO {
 					System.out.println("Enter your confirmation number: ");
 					int confNum = sc.nextInt();
 					CheckIn ch = new CheckIn(confNum);
-				} else if (a == 3) {
-
-				}
+				} 
+        
+        else if(a == 3)
+					{
+						if(currentUser.privilege == 0)
+						{
+							System.out.println("Access denied");
+							return;
+						}
+						System.out.println("What would you like to modify?");
+						System.out.println("1. Flight capacity\n2. Flight price\n3. Departure time");
+						
+						boolean loop;
+						do
+						{
+							int selection = sc.nextInt();
+							loop = false;
+							
+							if(selection == 1)
+							{
+								System.out.println("Enter new flight capacity");
+								int capacity = sc.nextInt();
+								ModifyFlight.modifyCapacity(db.flights.get(f), capacity);
+								System.out.println("Capacity successfully updated");
+							}
+							else if(selection == 2)
+							{
+								System.out.println("Enter new flight price");
+								int price = sc.nextInt();
+								ModifyFlight.modifyPrice(db.flights.get(f), price);
+								System.out.println("Price successfully updated");
+							}
+							else if(selection == 3)
+							{
+								System.out.println("Enter new flight departure time");
+								int time = sc.nextInt();
+								ModifyFlight.modifyDepartTime(db.flights.get(f), time);
+								System.out.println("Departure time successfully updated");
+							}
+							else
+							{
+								System.out.println("Please enter a valid number");
+								loop = true;
+							}
+						}while(loop == true);
+					}
 			} else if (sc.hasNext()) {
 				char c = sc.next().charAt(0);
 				if (c == 'q') {

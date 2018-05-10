@@ -1,5 +1,5 @@
 
-import java.io.File;
+import java.io.*;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,9 +9,9 @@ import java.io.*;
 public class DB {
 	
 	private static DB db = null;
-	public static ArrayList<Route> routes;
-	public static ArrayList<Flight> flights;
-	public static ArrayList<Reservation> reservations;
+	public ArrayList<Route> routes;
+	public ArrayList<Flight> flights;
+	public ArrayList<Reservation> reservations;
 
 	private DB() {
 
@@ -24,7 +24,7 @@ public class DB {
 		return db;
 	}
 
-	public static void createRoutes() {
+	public void createRoutes() {
 		File rtFile;
 		Scanner routeSc;
 		routes = new ArrayList<Route>();
@@ -34,6 +34,7 @@ public class DB {
 		String arriveDest;
 		int duration;
 		int basePrice;
+
 		String line;
 		String[] toks;
 
@@ -57,10 +58,10 @@ public class DB {
 			routeSc.close();
 		} catch (Exception e) {
 
-		}	
+		}
 	}
 
-	public static void updateRoutes() {
+	public void updateRoutes() {
 		File rtFile;
 		PrintWriter rtWriter;
 		try {
@@ -75,7 +76,7 @@ public class DB {
 		}	
 	}
 
-	public static void createFlights() {
+	public void createFlights() {
 		File flFile;
 		Scanner flightSc;
 		flights = new ArrayList<Flight>();
@@ -84,6 +85,7 @@ public class DB {
 		int capacity;
 		int route;
 		int departTime;
+
 		String line;
 		String[] toks;
 		try {
@@ -103,10 +105,10 @@ public class DB {
 			flightSc.close();
 		} catch (Exception e) {
 
-		}	
+		}
 	}
 
-	public static void updateFlights() {
+	public void updateFlights() {
 		File flFile;
 		PrintWriter flWriter;
 		try {
@@ -121,7 +123,7 @@ public class DB {
 		}	
 	}
 
-	public static void createReservations() {
+	public void createReservations() {
 		File rsFile;
 		Scanner reservationSc;
 		reservations = new ArrayList<Reservation>();
@@ -132,6 +134,7 @@ public class DB {
 		int confirmationNum;
 		int numSeats;
 		String[] names;
+
 		String line;
 		String[] toks;
 		try {
@@ -223,7 +226,7 @@ public class DB {
 		} catch (Exception e) {
 	
 		}
-		
+			
 		return acct;
 	}
 
