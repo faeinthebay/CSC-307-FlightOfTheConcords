@@ -61,6 +61,7 @@ public class BookFlight
     System.out.println();
 
     reservation = new Reservation(flight, reservationHolder, reserveSeats);
+    DB.reservations.add(reservation);
     return reservation.getConfirmationNumber();
   }
   /*Still need to handle seat numbers, names for group reservations*/
