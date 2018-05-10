@@ -37,7 +37,7 @@ public class BookFlight
   public void generateSeatNumbers()
   {
     int seatNumbersLeft = flight.getCapacity() - flight.getEmptySeats() + 1;
-    int[] seatNumbers;
+    int seatNumbers[] = new int[numSeats];
     for (int i = 0; i < numSeats; i++)
     {
       seatNumbers[i] = seatNumbersLeft;

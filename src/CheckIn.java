@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class CheckIn
 {
 	private int confirmationNumber;
@@ -25,9 +27,9 @@ public class CheckIn
 		if(valid == true)
 			return true;
 		
-		while(db.reservations.hasNext())
+		while(DB.reservations.hasNext())
 		{
-			Reservation res = db.reservations.next();
+			Reservation res = DB.reservations.next();
 			if(res.getConfirmationNumber() == this.confirmationNumber)
 			{
 				this.reservation = res;
@@ -41,25 +43,23 @@ public class CheckIn
 	private void reserveBags()
 	{
 		int maxBags = reservation.getNumSeats()*2;
-		sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Cal Air reservation for " + reservation.getReservationHolder() + " found.");
 		System.out.println("We see that you have booked " +  reservation.getNumSeats() + " seats.  Cal Air allows you to check"
 				+ "up to two bags per seat, at a charge of $25 per bag.\nHow many bags would you like to check (maximum of "
-				maxBags + ")?");
+				+ maxBags + ")?");
 		
-		String numBags = sc.next();
+		int numBags = sc.nextInt();
 		
-		while(!numBags.instanceof(int) || Integer.parseInt(numBags) > maxBags)
+		while(numBags > maxBags)
 		{
 			System.out.println("Please enter a valid number of bags (maximum of "
-					maxBags + ")");
-			numBags = sc.next()
+					+ maxBags + ")");
+			numBags = sc.nextInt();
 		}
 		
-		int numBagsInt = Integer.parseInt(numBags);
-		
-		System.out.println("Bags confirmed.  " + numBagsInt*25 + " has been billed to your account.\n"
+		System.out.println("Bags confirmed.  " + numBags*25 + " has been billed to your account.\n"
 				+ "");
 	}
 	

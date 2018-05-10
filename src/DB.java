@@ -1,15 +1,19 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class DB {
 	
-	private DB db = NULL;
-	public Route[] routes;
+	private static DB db;
+	public static Route[] routes;
 	public ArrayList<Flight>[] flights;
 
 	private DB() {
 
 	}
 
-	public static getDB() {
-		if (db == NULL) {
+	public static DB getDB() {
+		if (db == null) {
 			db = new DB();
 		}
 		return db;
