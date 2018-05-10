@@ -9,9 +9,9 @@ import java.io.*;
 public class DB {
 	
 	private static DB db = null;
-	public ArrayList<Route> routes;
-	public ArrayList<Flight> flights;
-	public ArrayList<Reservation> reservations;
+	public static ArrayList<Route> routes;
+	public static ArrayList<Flight> flights;
+	public static ArrayList<Reservation> reservations;
 
 	private DB() {
 
