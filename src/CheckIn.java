@@ -13,15 +13,17 @@ public class CheckIn
 		this.confirmationNumber = confirmationNumber;
 	}
   
-	public void confirmCheckIn()
+	public boolean confirmCheckIn()
 	{
 		if(!validReservation())
 		{
 			System.out.println("Confirmation number is invalid.  Please try again.");
+			return false;
 		}
 		
 		reserveBags();
 		printThankYouMessage();
+		return true;
 	}
 	
 	private boolean validReservation()
@@ -29,9 +31,9 @@ public class CheckIn
 		if(valid == true)
 			return true;
 		
-		for(int i = 0; i < DB.reservations.size(); i++)
+		for(int i = 0; i < db.reservations.size(); i++)
 		{
-			Reservation res = DB.reservations.get(i);
+			Reservation res = db.reservations.get(i);
 			if(res.getConfirmationNumber() == this.confirmationNumber)
 			{
 				this.reservation = res;
@@ -61,7 +63,7 @@ public class CheckIn
 			numBags = sc.nextInt();
 		}
 		
-		System.out.println("Bags confirmed.  " + numBags*25 + " has been billed to your account.\n"
+		System.out.println("Bags confirmed.  $" + numBags*25 + " has been billed to your account.\n"
 				+ "");
 	}
 	

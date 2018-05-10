@@ -1,5 +1,5 @@
 
-import java.io.File;
+import java.io.*;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class DB {
 	
 	private static DB db = null;
-	public static ArrayList<Route> routes;
-	public static ArrayList<Flight> flights;
-	public static ArrayList<Reservation> reservations;
+	public ArrayList<Route> routes;
+	public ArrayList<Flight> flights;
+	public ArrayList<Reservation> reservations;
 
 	private DB() {
 
@@ -22,7 +22,7 @@ public class DB {
 		return db;
 	}
 
-	public static void createRoutes() {
+	public void createRoutes() {
 		File rtFile;
 		Scanner routeSc;
 		routes = new ArrayList<Route>();
@@ -31,7 +31,7 @@ public class DB {
 		String arriveDest;
 		int duration;
 		int basePrice;
-		try {
+		/*try {
 			rtFile = new File("routes.txt");
 			routeSc = new Scanner(rtFile);
 			routeSc.useDelimiter("\t");
@@ -46,10 +46,17 @@ public class DB {
 			routeSc.close();
 		} catch (Exception e) {
 
-		}	
+		}*/
+		routeId = 0;
+		departDest = "SLO";
+		arriveDest = "LAX";
+		duration = 1;
+		basePrice = 40;
+		Route testRoute = new Route(duration, (float)basePrice, departDest, arriveDest);
+		routes.add(0, testRoute);
 	}
 
-	public static void updateRoutes() {
+	public void updateRoutes() {
 		File rtFile;
 		PrintWriter rtWriter;
 		try {
@@ -64,7 +71,7 @@ public class DB {
 		}	
 	}
 
-	public static void createFlights() {
+	public void createFlights() {
 		File flFile;
 		Scanner flightSc;
 		flights = new ArrayList<Flight>();
@@ -72,7 +79,7 @@ public class DB {
 		int capacity;
 		int route;
 		int departTime;
-		try {
+		/*try {
 			flFile = new File("flights.txt");
 			flightSc = new Scanner(flFile);
 			flightSc.useDelimiter("\t");
@@ -86,10 +93,15 @@ public class DB {
 			flightSc.close();
 		} catch (Exception e) {
 
-		}	
+		}*/
+		flightId = 0;
+		capacity = 40;
+		route = 0;
+		departTime = 6;
+		flights.add(flightId, new Flight(capacity, routes.get(route), departTime));
 	}
 
-	public static void updateFlights() {
+	public void updateFlights() {
 		File flFile;
 		PrintWriter flWriter;
 		try {
@@ -104,7 +116,7 @@ public class DB {
 		}	
 	}
 
-	public static void createReservations() {
+	public void createReservations() {
 		File rsFile;
 		Scanner reservationSc;
 		reservations = new ArrayList<Reservation>();
@@ -114,7 +126,7 @@ public class DB {
 		int confirmationNum;
 		int numSeats;
 		String[] names;
-		try {
+		/*try {
 			rsFile = new File("reservations.txt");
 			reservationSc = new Scanner(rsFile);
 			reservationSc.useDelimiter("\t");
@@ -135,10 +147,22 @@ public class DB {
 			reservationSc.close();
 		} catch (Exception e) {
 
-		}
+		}*/
+		reservationId = 0;
+		reservationHolder = "testcustomer";
+		flightId = 0;
+		confirmationNum = 1234567890;
+		numSeats = 2;
+		names = new String[numSeats];
+		names[0] = "seat1";
+		names[1] = "seat2";
+		
+		reservations.add(reservationId, new Reservation(flights.get(flightId), reservationHolder, numSeats));
+		reservations.get(reservationId).setNames(names);
+		reservations.get(reservationId).setConfirmationNumber(confirmationNum);
 	}
 
-	public static void updateReservations() {
+	public void updateReservations() {
 		File rsFile;
 		PrintWriter rsWriter;
 		try {
@@ -165,7 +189,7 @@ public class DB {
 		int empl;
 		User acct = null;
 		boolean access = false;
-		try {
+		/*try {
 			acFile = new File("accounts.txt");
 			accountSc = new Scanner(acFile);
 			accountSc.useDelimiter("\t");
@@ -180,8 +204,22 @@ public class DB {
 			accountSc.close();
 		} catch (Exception e) {
 	
+		}*/
+		
+		user = "testcustomer";
+		pass = "cpass";
+		empl = 0;
+		if (user.equals(username) && pass.equals(password)) {
+			acct = new User(user, empl);
 		}
 		
+		user = "testemployee";
+		pass = "epass";
+		empl = 1;
+		if (user.equals(username) && pass.equals(password)) {
+			acct = new User(user, empl);
+		}
+			
 		return acct;
 	}
 

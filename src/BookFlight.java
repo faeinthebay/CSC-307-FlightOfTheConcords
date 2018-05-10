@@ -5,7 +5,8 @@ public class BookFlight
   private Flight flight;
   private int numSeats;
   Reservation reservation;
-private Scanner sc;
+  private Scanner sc;
+  DB db = DB.getDB();
   
   public BookFlight(Flight flight, int numSeats)
   {
@@ -62,7 +63,7 @@ private Scanner sc;
     System.out.println();
 
     reservation = new Reservation(flight, reservationHolder, reserveSeats);
-    DB.reservations.add(reservation);
+    db.reservations.add(reservation);
     return reservation.getConfirmationNumber();
   }
   /*Still need to handle seat numbers, names for group reservations*/

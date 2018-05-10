@@ -4,21 +4,21 @@ public class ModifyFlight
 	private static final float GAP = 40;
 	
 	//modifies the capacity of the flight
-	public void modifyCapacity(Flight flight, int newCapacity) {
+	public static void modifyCapacity(Flight flight, int newCapacity) {
 		flight.updateCapacity(newCapacity);
 	}
 	
 	//modifies the route of the plane (simply WHICH route, not the route itself)
-	public void modifyRoute(Flight flight, Route newRoute) {
+	public static void modifyRoute(Flight flight, Route newRoute) {
 		flight.updateRoute(newRoute);
 	}
 	
-	public void modifyPrice(Flight flight, float newPrice) {
+	public static void modifyPrice(Flight flight, float newPrice) {
 		flight.updatePrice(newPrice);
 	}
 	
 	//modifies departure time, only changes the departure time 
-	public void modifyDepartTime(Flight flight, int newDepartTime) {
+	public static void modifyDepartTime(Flight flight, int newDepartTime) {
 		//if(timeConflict == false)
 			flight.updateDT(newDepartTime);
 		
