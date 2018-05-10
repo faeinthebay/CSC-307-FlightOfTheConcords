@@ -1,4 +1,3 @@
-
 public class Flight {
 
 	private int capacity;
@@ -6,13 +5,13 @@ public class Flight {
 	private Route route;
 	private int departTime;
 	private float price;
-	private int id;
+	private int arrivalTime;
 
-	public Flight(int capacity, int routeId, Route route, int departTime) {
+	public Flight(int capacity, Route route, int departTime) {
 		this.capacity = capacity;
 		this.route = route;
 		this.departTime = departTime;
-		this.id = routeId;
+		this.price = route.basePrice;
 	}
 
 	public void calculatePrice() {
@@ -27,12 +26,8 @@ public class Flight {
 		return emptySeats;
 	}
 
-	public Route getRoute() {
+	public int getRoute() {
 		return route;
-	}
-
-	public int getRouteID() {
-		return id;
 	}
 
 	public float getPrice() {
@@ -42,9 +37,21 @@ public class Flight {
 	public int getDepartTime() {
 		return departTime;
 	}
+	
+	public int getArrivalTime() {
+		return departTime + route.duration;
+	}
 
 	public void updateSeats(int seats) {
 		emptySeats = emptySeats - seats;
+	}
+
+	public void updateCapacity(int newCapacity) {
+		capacity = capacity + newCapacity;
+	}
+
+	public void updateDT(int newTime) {
+		departTime = departTime + newTime;
 	}
 
 }

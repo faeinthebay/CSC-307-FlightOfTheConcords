@@ -7,10 +7,10 @@ public class Route
    private String origin;
    private String destination;
    
-   public Route(int dur, floate, String origin, String destination)
+   public Route(int duration, float price, String origin, String destination)
    {
       this.duration = duration;
-      this.price = price;
+      this.basePrice = price;
       this.origin = origin;
       this.destination = destination;
    }
