@@ -224,7 +224,8 @@ public class DB {
 			}
 			accountSc.close();
 		} catch (Exception e) {
-	
+			System.out.println("DEBUG: File open error!");
+			return null;
 		}
 			
 		return acct;

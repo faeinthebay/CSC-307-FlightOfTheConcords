@@ -1,6 +1,14 @@
+import com.sun.deploy.util.FXLoader;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.util.*;
 
-public class IO {
+public class IO extends Application {
 
 
 	public static void main(String args[]) {
@@ -10,6 +18,8 @@ public class IO {
 		int empl;
 		User currentUser = null;
 		DB db = DB.getDB();
+
+		launch(args);
 
 		try {
 		
@@ -126,5 +136,17 @@ public class IO {
 
 		}
 
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		//FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployeeHome.fxml")); // TODO: This fxml cannot be loaded
+		Parent root = FXMLLoader.load(getClass().getResource("EmployeeHome.fxml"));
+		Group UIRoot = new Group();
+		Scene mainScene = new Scene(root,600, 600);
+		//mainScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setTitle("Cal Airlines");
+		primaryStage.setScene(mainScene);
+		primaryStage.show();
 	}
 }
