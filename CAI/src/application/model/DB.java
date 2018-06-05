@@ -31,7 +31,7 @@ public class DB {
 		Connection conn = null;
 		try {
 			Class.forName("org.sqlite.JDBC");
-			String url = "jdbc:sqlite:C:/Users/Ayan/Desktop/CAI_DB.db";
+			String url = "jdbc:sqlite:src/application/CAI_DB.db";
 			conn = DriverManager.getConnection(url);
 			System.out.println("Connected to db");
 		} catch (SQLException e) {
