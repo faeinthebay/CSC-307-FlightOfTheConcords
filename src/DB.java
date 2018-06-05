@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.*;
 import java.io.*;
+import java.sql.*;
 
 public class DB {
 	
@@ -14,7 +15,7 @@ public class DB {
 	public static ArrayList<Reservation> reservations;
 
 	private DB() {
-
+		connect();
 	}
 
 	public static DB getDB() {
@@ -22,6 +23,17 @@ public class DB {
 			db = new DB();
 		}
 		return db;
+	}
+
+	private Connection connect() {
+		Connection conn = null;
+		try {
+			String url = "jdbc:sqlite:CAI_DB.db";
+			conn = DriverManager.getConnection(url);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} 
+		return conn;
 	}
 
 	public void createRoutes() {

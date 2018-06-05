@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginController">
+   <children>
+      <AnchorPane prefHeight="334.0" prefWidth="374.0">
+         <children>
+            <Button fx:id="loginbutton" layoutX="169.0" layoutY="216.0" mnemonicParsing="false" onAction="#HandleLoginButtonClick" text="Login" />
+            <TextField fx:id="username" layoutX="154.0" layoutY="103.0" />
+            <Label layoutX="78.0" layoutY="107.0" text="Username" />
+            <Label layoutX="80.0" layoutY="163.0" text="Password" />
+            <Label layoutX="150.0" layoutY="33.0" text="CAI Login">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="70.0" layoutY="289.0" text="Don't have an account?" />
+            <Button fx:id="registerbutton" layoutX="215.0" layoutY="285.0" mnemonicParsing="false" onAction="#HandleRegisterButtonClick" text="Register Now!" />
+            <PasswordField fx:id="password" layoutX="154.0" layoutY="159.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
