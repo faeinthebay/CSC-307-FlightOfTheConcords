@@ -1,5 +1,7 @@
 package application.model;
 
+import java.util.Date;
+
 public class Flight {
 
 	private int capacity;
@@ -9,6 +11,7 @@ public class Flight {
 	private String routeId;
 	private String departTime;
 	private String departDate;
+	private Date date;
 	private String status;
 	private float price;
 	private int arrivalTime;
@@ -61,6 +64,10 @@ public class Flight {
 	
 	public String getDepartDate() {
 		return departDate;
+	}
+	
+	public int getArrivalTime() {
+		return arrivalTime;
 	}
 	
 	public String getStatus() {
