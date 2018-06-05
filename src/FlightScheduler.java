@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class FlightScheduler
 {
 	private String routeID; 
@@ -8,7 +10,7 @@ public class FlightScheduler
 	
     public FlightScheduler(String routeID, String date, ArrayList<Flight> flights)
     {
-    	this.route = route;
+    	this.routeID = routeID;
     	this.date = date;
     	this.flights = flights;
     	
@@ -64,26 +66,29 @@ public class FlightScheduler
     		return false;
     }
 	
-    private int[] getRunwayTimes(ArrayList<Flight> flights, ArrayList<String> runwayTimes)
+    private ArrayList<String> getRunwayTimes(ArrayList<Flight> flights, ArrayList<String> runwayTimes)
     {
-    	for(int i = 0; i < flights.length(); i++)
+    	for(int i = 0; i < flights.size(); i++) //Check each flight
     	{
     		Flight flight = flights.get(i);
     		
     		if(flight.getDate().equals(date)) //The flight is using the airport on the date you are looking at
     		{
-    			if(flight.routeID.equals("CA01") || flight.routeID.equals("CA02") || flight.routeID.equals("CA03") || flight.routeID.equals("CA04") || flight.routeID.equals("CA05") || flight.routeID.equals("CA06"))
+    			if(flight.getRouteID().equals("CA01") || flight.getRouteID().equals("CA02") || flight.getRouteID().equals("CA03") || flight.getRouteID().equals("CA04") || flight.getRouteID().equals("CA05") || flight.getRouteID().equals("CA06"))
     	    	{
-    	    		//CALCULATE ARRIVAL TIMEr
+    				//Flight arriving in SLO
+    				runwayTimes.remove(flight.getArrivalTime());
     	    	}
     			else //Departing from SLO
     			{
-    				String time = runwayTimes.get(flight.getDepartureTime())
+    				runwayTimes.remove(flight.getDepartureTime());
     			}
     		}
     	}
+    	
+    	return runwayTimes;
     }
-    /*private int relevantTime(String routeID)
+    private int relevantTime(String routeID)
     {
     	if(routeID.equals("CA01") || routeID.equals("CA02") || routeID.equals("CA03") || routeID.equals("CA04") || routeID.equals("CA05") || routeID.equals("CA06"))
     	{
