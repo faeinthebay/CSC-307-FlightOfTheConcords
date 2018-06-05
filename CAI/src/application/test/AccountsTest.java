@@ -19,8 +19,8 @@ class AccountsTest {
 	@Test
 	void testAddAccount() throws Exception {
 		DB db = DB.getDB();
-		db.addAccount("userTest", "passTest");
-		User testuser = db.checkAccount("userTest", "passTest");
+		db.addAccount("userTest1", "passTest");
+		User testuser = db.checkAccount("userTest1", "passTest");
 		assertFalse(testuser == null);
 	}
 	
@@ -34,9 +34,9 @@ class AccountsTest {
 	@Test
 	void testCheckUserPrivilege() throws Exception {
 		DB db = DB.getDB();
-		User testuser = db.checkAccount("user", "pass");
+		User testuser = db.checkAccount("ayan", "patel");
 		assertFalse(testuser == null);
-		assertEquals(testuser.getUser(), "user");
+		assertEquals(testuser.getUser(), "ayan");
 		assertEquals(testuser.getPrivilege(), 0);
 	}
 	
