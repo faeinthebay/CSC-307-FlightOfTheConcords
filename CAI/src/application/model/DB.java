@@ -94,7 +94,7 @@ public class DB {
 		return users;
 	}
 	
-	public void updateUserPrivilege(User user) {
+	public void updateUserPrivilege(User user) { // TODO: Don't handle exceptions silently; show error
 		try {
 			String sql= "UPDATE accounts SET privilege=? WHERE username=?";
 			preparedstatement=conn.prepareStatement(sql);

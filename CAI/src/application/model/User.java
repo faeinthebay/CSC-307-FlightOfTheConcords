@@ -20,6 +20,14 @@ public class User{
 	public String getUser() {
 		return username;
 	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
 	
 	public int getPrivilege() {
 		return privilege;
