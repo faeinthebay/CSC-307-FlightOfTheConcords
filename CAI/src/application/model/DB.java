@@ -146,12 +146,12 @@ public class DB {
 		return flights;
 	}
 	
-	public Flight getFlight(String flightId) {
+	public Flight getFlight(int flightId) {
 		Flight flight = null;
 		try {
 			String sql = "SELECT flights.*,routes.duration FROM FLIGHTS,ROUTES WHERE flights.flightId=?";
 			preparedstatement = conn.prepareStatement(sql);
-			preparedstatement.setString(1, flightId);
+			preparedstatement.setInt(1, flightId);
 			result = preparedstatement.executeQuery();
 			flight = new Flight(result.getInt("flightId"), result.getString("routeId"), result.getString("departDate"), result.getString("departTime"), result.getString("status"), result.getInt("emptySeats"), result.getInt("duration"));
 			result.close();
@@ -170,6 +170,7 @@ public class DB {
 			preparedstatement.setString(2, flight.getDepartTime());
 			preparedstatement.setString(3, flight.getStatus());
 			preparedstatement.setInt(4, flight.getEmptySeats());
+			preparedstatement.setInt(5, flight.getFlightId());
 			preparedstatement.executeUpdate();
 			preparedstatement.close();
 		} catch (SQLException e) {
