@@ -30,13 +30,13 @@ public class AccountsManagerController {
 	@FXML TableColumn<User, String> lastnameColumn;
 	@FXML TableColumn<User, String> isEmployeeColumn;
 
-	public void HandlePromotion(ActionEvent event) throws Exception{
+	public void HandlePromotion(ActionEvent event) {
 		DB db = DB.getDB();
 		db.updateUserPrivilege(new User(username.getText(), 1));
 		username.clear();
 	}
 
-	public void HandleDemotion(ActionEvent event) throws Exception{
+	public void HandleDemotion(ActionEvent event) {
 		DB db = DB.getDB();
 		db.updateUserPrivilege(new User(username.getText(), 0));
 		username.clear();
