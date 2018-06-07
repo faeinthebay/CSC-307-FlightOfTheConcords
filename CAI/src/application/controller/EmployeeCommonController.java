@@ -84,4 +84,17 @@ public class EmployeeCommonController implements CommonController {
 
 		}
 	}
+
+	@Override
+	public void goToEnd(Flight flight) {
+		try {
+			FXMLLoader flightsCheckoutBeginLoader = new FXMLLoader(getClass().getResource("../view/purchase_confirmation.fxml"));
+			flightsTab.setContent(flightsCheckoutBeginLoader.load());
+			PurchaseConfirmationController checkoutController = flightsCheckoutBeginLoader.getController();
+			//checkoutController.parentToNotify = this;
+			checkoutController.initialize(flight, this);
+		} catch (IOException e){
+
+		}
+	}
 }
