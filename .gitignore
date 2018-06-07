@@ -3,3 +3,4 @@
 *.class
 CAI/target/*
 CAI/bin/*
+CAI/target/classes/application/CAI_DB.db
