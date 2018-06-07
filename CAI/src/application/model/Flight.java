@@ -1,6 +1,8 @@
 package application.model;
 
 import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Flight {
 
@@ -25,6 +27,14 @@ public class Flight {
 		this.status = status;
 		this.emptySeats = emptySeats;
 		this.duration = duration;
+		
+		try {
+			date = new SimpleDateFormat("dd-MM-yy").parse(departDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		//this.arrivalTime = this.durationTime + duration;
 		//this.price = route.getBasePrice();
 	}
@@ -80,6 +90,10 @@ public class Flight {
 	
 	public int getDuration() {
 		return duration;
+	}
+	
+	public Date getDate() {
+		return date;
 	}
 	
 	/*public int getArrivalTime() {
