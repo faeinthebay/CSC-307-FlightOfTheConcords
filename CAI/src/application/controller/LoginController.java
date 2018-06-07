@@ -47,6 +47,9 @@ public class LoginController {
 				stage.setTitle("Menu");
 				stage.setScene(new Scene(root, 450, 450));
 				stage.show();
+				
+				Stage currentStage = (Stage) username.getScene().getWindow();
+			    currentStage.close();
 			} else {
 				
 			}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="251.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SchedulerTimePickerController">
+   <children>
+      <Label fx:id="text" layoutX="14.0" layoutY="11.0" prefHeight="77.0" prefWidth="126.0" text="Please select a runway reservation in SLO and click confirm" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="confirm" layoutX="165.0" layoutY="37.0" mnemonicParsing="false" onAction="#HandleConfirm" prefHeight="25.0" prefWidth="78.0" text="Confirm" />
+      <ListView layoutX="-200.0" layoutY="-9.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="list" layoutY="86.0" prefHeight="571.0" prefWidth="251.0" />
+   </children>
+</AnchorPane>

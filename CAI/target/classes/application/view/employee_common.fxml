@@ -43,6 +43,6 @@
         </tabs>
       </TabPane>
       <Label layoutX="14.0" layoutY="14.0" text="Welcome EMPLOYEE" />
-      <Button layoutX="675.0" layoutY="14.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="111.0" text="Logout" />
+      <Button layoutX="675.0" layoutY="14.0" mnemonicParsing="false" onAction="#HandleLogout" prefHeight="3.0" prefWidth="111.0" text="Logout" />
    </children>
 </AnchorPane>
