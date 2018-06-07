@@ -13,7 +13,7 @@ public class Flight {
 	private String departDate;
 	private Date date;
 	private String status;
-	private float price;
+	private int price;
 	private int arrivalTime;
 	private int duration;
 
@@ -33,11 +33,15 @@ public class Flight {
 		price = Calculate_Price.calculate(route, emptySeats);
 	}*/
 	
-	public void updatePrice(float newPrice) {
+	public void updatePrice(int newPrice) {
 		/*Eventually delete this method*/
 		price = newPrice;
 	}
 
+	public void updateStatus(String status) {
+		this.status = status;
+	}
+	
 	public int getCapacity() {
 		return capacity;
 	}
@@ -54,7 +58,7 @@ public class Flight {
 		return flightId;
 	}
 
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
 

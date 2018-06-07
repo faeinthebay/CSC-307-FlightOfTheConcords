@@ -52,6 +52,7 @@ public class BookFlight
 
   public int reserve()
   {
+	  /*
     sc = new Scanner(System.in);
     String reservationHolder;
     int reserveSeats;
@@ -64,7 +65,7 @@ public class BookFlight
     reserveSeats = sc.nextInt();
     System.out.println();
 
-    reservation = new Reservation(flight.getFlightId(), reservationHolder, reserveSeats);
+    reservation = new Reservation(flight.getFlightId(), reservationHolder, reserveSeats);*/
     db.addReservation(reservation);
     return reservation.getConfirmationNumber();
   }
