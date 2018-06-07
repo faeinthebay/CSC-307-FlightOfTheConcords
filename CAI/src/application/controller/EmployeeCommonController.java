@@ -65,7 +65,7 @@ public class EmployeeCommonController implements CommonController {
 	@Override
 	public void handleFlightNext(int numSeats) {
 		try {
-			Pane flightsCheckoutScene = FXMLLoader.load(getClass().getResource("../view/employee_all_flights.fxml"));
+			Pane flightsCheckoutScene = FXMLLoader.load(getClass().getResource("../view/ticketholder_info.fxml"));
 			flightsTab.setContent(flightsCheckoutScene);
 		} catch (IOException e){
 
