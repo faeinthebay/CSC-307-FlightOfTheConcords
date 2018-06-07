@@ -164,13 +164,14 @@ public class DB {
 	
 	public void updateFlight(Flight flight) {
 		try {
-			String sql= "UPDATE flights SET departDate=?,departTime=?, status=?, emptySeats=? WHERE flightId=?";
+			String sql= "UPDATE flights SET departDate=?,departTime=?, status=?, emptySeats=?, price=? WHERE flightId=?";
 			preparedstatement=conn.prepareStatement(sql);
 			preparedstatement.setString(1, flight.getDepartDate());
 			preparedstatement.setString(2, flight.getDepartTime());
 			preparedstatement.setString(3, flight.getStatus());
 			preparedstatement.setInt(4, flight.getEmptySeats());
-			preparedstatement.setInt(5, flight.getFlightId());
+			preparedstatement.setInt(5, flight.getPrice());
+			preparedstatement.setInt(6, flight.getFlightId());
 			preparedstatement.executeUpdate();
 			preparedstatement.close();
 		} catch (SQLException e) {
