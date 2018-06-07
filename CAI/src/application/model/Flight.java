@@ -18,6 +18,8 @@ public class Flight {
 	private int price;
 	private int arrivalTime;
 	private int duration;
+	private String departCity = null;
+	private String arriveCity = null;
 
 	public Flight(int flightId, String routeId, String departDate, String departTime, String status, int emptySeats, int duration) {
 		this.flightId = flightId;
@@ -51,6 +53,14 @@ public class Flight {
 	public void updateStatus(String status) {
 		this.status = status;
 	}
+
+	public void setDepartCity(String depart){
+		departCity = depart;
+	}
+
+	public void setArriveCity(String arrive){
+		arriveCity = arrive;
+	}
 	
 	public int getCapacity() {
 		return capacity;
@@ -78,6 +88,14 @@ public class Flight {
 	
 	public String getDepartDate() {
 		return departDate;
+	}
+
+	public String getDepartCity(){
+		return departCity;
+	}
+
+	public String getArriveCity(){
+		return arriveCity;
 	}
 	
 	public int getArrivalTime() {

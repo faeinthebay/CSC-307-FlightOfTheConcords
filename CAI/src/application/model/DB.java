@@ -116,6 +116,9 @@ public class DB {
 			flights = new ArrayList<Flight>();
 			while (result.next()) {
 				Flight flight = new Flight(result.getInt("flightId"), result.getString("routeId"), result.getString("departDate"), result.getString("departTime"), result.getString("status"), result.getInt("emptySeats"), result.getInt("duration"));
+				String[] cities = getRouteOriginDest(flight.getRoute());
+				flight.setDepartCity(cities[0]);
+				flight.setArriveCity(cities[1]);
 				flights.add(flight);
 			}
 			result.close();
@@ -125,7 +128,7 @@ public class DB {
 		}
 		return flights;
 	}
-	
+
 	public ArrayList<Flight> getFlightsForRoute(String routeId) {
 		ArrayList<Flight> flights = null;
 		try {

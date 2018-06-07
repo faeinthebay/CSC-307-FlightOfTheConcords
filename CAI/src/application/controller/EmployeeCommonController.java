@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class EmployeeCommonController {
+public class EmployeeCommonController implements CommonController {
 
 	@FXML TabPane tabs;
 	@FXML Tab homeTab;
@@ -58,4 +58,13 @@ public class EmployeeCommonController {
 		}
 	}
 
+	@Override
+	public void handleFlightNext(int numSeats) { // TODO: Implement checkout process
+		try {
+			Pane flightsCheckoutScene = FXMLLoader.load(getClass().getResource("../view/employee_all_flights.fxml"));
+			flightsTab.setContent(flightsCheckoutScene);
+		} catch (IOException e){
+
+		}
+	}
 }

@@ -2,12 +2,9 @@ package application.controller;
 
 import application.model.DB;
 import application.model.Flight;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.ArrayList;
@@ -25,6 +22,7 @@ public class FlightsViewController {
 	@FXML TableColumn<Flight, Integer> seatsAvailable;
 
 	public void initialize(){
+		DB db = DB.getDB();
 		// Associate Flight fields with table columns with JavaFX magic that somehow figures out method names
 		// TODO: Lookup depart city by route
 		flightNumCol.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("FlightId"));
@@ -32,8 +30,9 @@ public class FlightsViewController {
 		departTimeCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartTime"));
 		arriveTimeCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("ArrivalTime"));
 		seatsAvailable.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("EmptySeats"));
+		departCityCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartCity"));
+		arriveCityCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("ArriveCity"));
 		// Populate table
-		DB db = DB.getDB();
 		ArrayList<Flight> flightList = db.getFlights();
 		flightsTable.getItems().addAll(flightList);
 	}
