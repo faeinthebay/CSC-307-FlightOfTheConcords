@@ -8,4 +8,6 @@ public interface CommonController {
 
 	public void handleBeginCheckout(Flight flight);
 
+	public void goToEnd(Flight flight);
+
 }
