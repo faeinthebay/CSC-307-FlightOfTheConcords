@@ -5,24 +5,31 @@ public class ModifyFlight
 	//Gap required between landing and takeoff in minutes
 	private static final float GAP = 40;
 	
-	//modifies the capacity of the flight
-	public static void modifyCapacity(Flight flight, int newCapacity) {
-		flight.updateCapacity(newCapacity);
-	}
 	
+	
+	//modifies the capacity of the flight
+	/*public static void modifyCapacity(Flight flight, int newCapacity) {
+		flight.updateCapacity(newCapacity);
+	}*/
+	/*
 	//modifies the route of the plane (simply WHICH route, not the route itself)
 	public static void modifyRoute(Flight flight, String newRoute) {
 		flight.updateRoute(newRoute);
 	}
-	
-	public static void modifyPrice(Flight flight, float newPrice) {
+	*/
+	public static void modifyPrice(Flight flight, int newPrice) {
 		flight.updatePrice(newPrice);
+		DB db = DB.getDB();
+		db.updateFlight(flight);
 	}
 	
 	//modifies departure time, only changes the departure time 
-	public static void modifyDepartTime(Flight flight, int newDepartTime) {
+	public static void modifyDepartTime(Flight flight, int newDepartTime, String status) {
 		//if(timeConflict == false)
 			flight.updateDT(newDepartTime);
+			flight.updateStatus(status);
+			DB db = DB.getDB();
+			db.updateFlight(flight);
 		
 		//else
 			//System.out.println("New departure time too close to an arriving flight, no changes to departure time were made");

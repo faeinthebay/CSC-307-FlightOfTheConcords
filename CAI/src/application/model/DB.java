@@ -146,12 +146,12 @@ public class DB {
 		return flights;
 	}
 	
-	public Flight getFlight(String flightId) {
+	public Flight getFlight(int flightId) {
 		Flight flight = null;
 		try {
 			String sql = "SELECT flights.*,routes.duration FROM FLIGHTS,ROUTES WHERE flights.flightId=?";
 			preparedstatement = conn.prepareStatement(sql);
-			preparedstatement.setString(1, flightId);
+			preparedstatement.setInt(1, flightId);
 			result = preparedstatement.executeQuery();
 			flight = new Flight(result.getInt("flightId"), result.getString("routeId"), result.getString("departDate"), result.getString("departTime"), result.getString("status"), result.getInt("emptySeats"), result.getInt("duration"));
 			result.close();
@@ -164,12 +164,14 @@ public class DB {
 	
 	public void updateFlight(Flight flight) {
 		try {
-			String sql= "UPDATE flights SET departDate=?,departTime=?, status=?, emptySeats=? WHERE flightId=?";
+			String sql= "UPDATE flights SET departDate=?,departTime=?, status=?, emptySeats=?, price=? WHERE flightId=?";
 			preparedstatement=conn.prepareStatement(sql);
 			preparedstatement.setString(1, flight.getDepartDate());
 			preparedstatement.setString(2, flight.getDepartTime());
 			preparedstatement.setString(3, flight.getStatus());
 			preparedstatement.setInt(4, flight.getEmptySeats());
+			preparedstatement.setInt(5, flight.getPrice());
+			preparedstatement.setInt(6, flight.getFlightId());
 			preparedstatement.executeUpdate();
 			preparedstatement.close();
 		} catch (SQLException e) {
@@ -305,6 +307,23 @@ public class DB {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	public String[] getRouteOriginDest(String routeId) {
+		String[] route = new String[2];
+		try {
+			String sql= "SELECT origin,destination FROM routes WHERE routeId=?";
+			preparedstatement=conn.prepareStatement(sql);
+			preparedstatement.setString(1, routeId);
+			result = preparedstatement.executeQuery();
+			route[0] = result.getString("origin");
+			route[1] = result.getString("destination");
+			result.close();
+			preparedstatement.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return route;
 	}
 	
 }

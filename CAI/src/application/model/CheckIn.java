@@ -23,8 +23,8 @@ public class CheckIn
 			return false;
 		}
 		
-		reserveBags();
-		printThankYouMessage();
+		//reserveBags();
+		//printThankYouMessage();
 		return true;
 	}
 	
