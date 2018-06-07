@@ -169,6 +169,7 @@ public class FlightScheduler
     		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy");
     		String formattedDate = date.format(formatter);
     		Flight flight = new Flight(flights.size(), routeID, formattedDate, time, "ONTIME", 20, duration);
+    		Calculate_Price.updatePrice(routeID, flight);
     		//Create flight and add it to DB, flights array
     		db.addFlight(flight);
     	}
@@ -181,6 +182,7 @@ public class FlightScheduler
     		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy");
     		String formattedDate = date.format(formatter);
     		Flight flight = new Flight(flights.size(), routeID, formattedDate, time, "ONTIME", 20, duration);
+    		Calculate_Price.updatePrice(routeID, flight);
     		//Create flight and add it to DB, flights array
     		db.addFlight(flight);
     	}
