@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Tickethholder 1 information" />
+      <Label layoutX="166.0" layoutY="79.0" text="First name" />
+      <TextField layoutX="289.0" layoutY="71.0" />
+      <Label layoutX="166.0" layoutY="156.0" text="Last name" />
+      <TextField layoutX="289.0" layoutY="148.0" />
+      <Label layoutX="167.0" layoutY="231.0" text="Birthdate" />
+      <DatePicker layoutX="287.0" layoutY="223.0" />
+      <Label layoutX="167.0" layoutY="303.0" text="Phone #" />
+      <TextField layoutX="289.0" layoutY="295.0" />
+      <Button layoutX="681.0" layoutY="376.0" mnemonicParsing="false" text="Next" />
+   </children>
+</AnchorPane>

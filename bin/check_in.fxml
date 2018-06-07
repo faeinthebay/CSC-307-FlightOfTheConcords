@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="317.0" layoutY="7.0" text="Check in details" />
+      <TableView layoutY="42.0" prefHeight="190.0" prefWidth="800.0">
+         <columns>
+            <TableColumn prefWidth="238.0" text="Confirmation Num." />
+            <TableColumn minWidth="82.0" prefWidth="150.0" text="Flight Num." />
+            <TableColumn minWidth="82.0" prefWidth="129.0" text="Price Paid" />
+            <TableColumn minWidth="82.0" prefWidth="142.0" text="Seats Avail." />
+            <TableColumn minWidth="82.0" prefWidth="140.0" text="Checked In" />
+         </columns>
+      </TableView>
+      <Label layoutX="197.0" layoutY="296.0" text="Flyer Name" />
+      <Label layoutX="483.0" layoutY="296.0" text="Seat" />
+      <ChoiceBox layoutX="483.0" layoutY="347.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="483.0" layoutY="422.0" prefWidth="150.0" />
+      <Button layoutX="633.0" layoutY="565.0" mnemonicParsing="false" text="Check In" />
+   </children>
+</AnchorPane>

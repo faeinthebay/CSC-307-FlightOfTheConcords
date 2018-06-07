@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EmployeeSchedulerController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Scheduler" />
-      <Label layoutX="150.0" layoutY="221.0" text="Route ID" />
-      <TextField layoutX="302.0" layoutY="213.0" prefHeight="51.0" prefWidth="348.0" />
-      <ToggleButton layoutX="302.0" layoutY="398.0" mnemonicParsing="false" text="Schedule Flight" />
-      <Label layoutX="150.0" layoutY="316.0" text="Flight Date" />
-      <DatePicker layoutX="302.0" layoutY="308.0" />
+      <Label layoutX="150.0" layoutY="221.0" text="Departure City" />
+      <ToggleButton fx:id="ScheduleFlight" layoutX="302.0" layoutY="379.0" mnemonicParsing="false" onAction="#HandleScheduleFlightButtonClick" text="Schedule Flight" />
+      <Label layoutX="160.0" layoutY="312.0" text="Flight Date" />
+      <DatePicker fx:id="flightDate" layoutX="302.0" layoutY="308.0" />
+      <ChoiceBox fx:id="departureCity" layoutX="302.0" layoutY="217.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="160.0" layoutY="263.0" text="Arrival City" />
+      <ChoiceBox fx:id="arrivalCity" layoutX="302.0" layoutY="259.0" prefHeight="25.0" prefWidth="174.0" />
    </children>
 </AnchorPane>
