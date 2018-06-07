@@ -23,8 +23,8 @@ public class CheckIn
 			return false;
 		}
 		
-		//reserveBags();
-		//printThankYouMessage();
+		reserveBags();
+		printThankYouMessage();
 		return true;
 	}
 	
@@ -41,7 +41,7 @@ public class CheckIn
 		return false;
 	}
 	
-	private void reserveBags()
+	public void reserveBags()
 	{
 		int maxBags = reservation.getNumSeats()*2;
 		sc = new Scanner(System.in);

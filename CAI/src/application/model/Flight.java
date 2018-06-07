@@ -86,6 +86,8 @@ public class Flight {
 		return departTime + route.getDuration();
 	}*/
 
+	/**These following update methods add or subtract from the initialized value rather than replacing them,
+	 * unsure if this is desire behavior **/
 	public void updateSeats(int seats) {
 		emptySeats = emptySeats - seats;
 	}
