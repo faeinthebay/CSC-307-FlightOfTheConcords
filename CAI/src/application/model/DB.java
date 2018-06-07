@@ -309,4 +309,21 @@ public class DB {
 		}
 	}
 	
+	public String[] getRouteOriginDest(String routeId) {
+		String[] route = new String[2];
+		try {
+			String sql= "SELECT origin,destination FROM routes WHERE routeId=?";
+			preparedstatement=conn.prepareStatement(sql);
+			preparedstatement.setString(1, routeId);
+			result = preparedstatement.executeQuery();
+			route[0] = result.getString("origin");
+			route[1] = result.getString("destination");
+			result.close();
+			preparedstatement.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return route;
+	}
+	
 }
