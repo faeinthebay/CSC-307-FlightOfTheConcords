@@ -4,13 +4,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EmployeeCommonController">
    <children>
-      <TabPane layoutY="80.0" prefHeight="520.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabs" layoutY="80.0" prefHeight="520.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Home">
+          <Tab text="Home"  fx:id="homeTab">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="760.0" prefWidth="800.0" />
+              <AnchorPane fx:id="homePane" minHeight="0.0" minWidth="0.0" prefHeight="760.0" prefWidth="800.0" />
             </content>
           </Tab>
           <Tab text="Flight Search">
@@ -23,9 +23,9 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Flights">
+            <Tab text="Flights" fx:id="flightsTab">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane fx:id="flightsPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
             <Tab text="Scheduler">
@@ -33,9 +33,9 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Accounts">
+            <Tab text="Accounts" fx:id="accountTab">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane fx:id="accountPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
                </content>
             </Tab>
         </tabs>
