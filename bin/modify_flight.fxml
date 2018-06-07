@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="291.0" layoutY="14.0" text="Modify Flight Details" />
+      <TableView layoutY="49.0" prefHeight="190.0" prefWidth="800.0">
+         <columns>
+            <TableColumn prefWidth="175.0" text="Flight Num." />
+            <TableColumn minWidth="82.0" prefWidth="460.0" text="Departure">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="City" />
+                  <TableColumn prefWidth="75.0" text="Date" />
+                  <TableColumn prefWidth="75.0" text="Time" />
+               </columns>
+            </TableColumn>
+            <TableColumn minWidth="82.0" prefWidth="460.0" text="Arrival">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="City" />
+                  <TableColumn prefWidth="75.0" text="Date" />
+                  <TableColumn prefWidth="75.0" text="Time" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="175.0" text="Avail. seats" />
+         </columns>
+      </TableView>
+      <Button layoutX="647.0" layoutY="577.0" mnemonicParsing="false" text="Submit" />
+      <Label layoutX="14.0" layoutY="314.0" text="Flight Number" />
+      <TextField layoutX="186.0" layoutY="306.0" prefHeight="51.0" prefWidth="179.0" />
+      <Label layoutX="401.0" layoutY="314.0" text="Departure City" />
+      <ChoiceBox layoutX="572.0" layoutY="306.0" prefWidth="150.0" />
+      <Label layoutX="14.0" layoutY="394.0" text="Departure Date" />
+      <DatePicker layoutX="191.0" layoutY="386.0" prefHeight="51.0" prefWidth="179.0" />
+      <TextField layoutX="188.0" layoutY="463.0" prefHeight="51.0" prefWidth="179.0" />
+      <Label layoutX="16.0" layoutY="471.0" text="Flight Duration" />
+      <ChoiceBox layoutX="572.0" layoutY="386.0" prefWidth="150.0" />
+      <Label layoutX="401.0" layoutY="394.0" text="Departure Time" />
+      <Label layoutX="401.0" layoutY="471.0" text="Arrival Time" />
+      <ChoiceBox layoutX="572.0" layoutY="463.0" prefWidth="150.0" />
+      <CheckBox layoutX="43.0" layoutY="585.0" mnemonicParsing="false" text="Flight is cancelled" />
+   </children>
+</AnchorPane>
