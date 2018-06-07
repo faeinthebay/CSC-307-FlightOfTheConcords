@@ -36,13 +36,13 @@ public class LoginController {
 			if (user != null) {
 				ArrayList<Flight> flights = db.getFlights();
 				Flight obj;
-				for (int i=0; i<flights.size(); i++) {
+				for (int i=0; i<flights.size(); i++) { // Add flights to ObservableList
 					obj = flights.get(i);
 					data.add(obj.toString());
 				}
-				ListView<String> listView = new ListView<String>(data);
-				root = FXMLLoader.load(getClass().getResource("../view/Menu.fxml"));
-				root.getChildren().add(listView);
+				//ListView<String> listView = new ListView<String>(data);
+				root = FXMLLoader.load(getClass().getResource("../view/employee_common.fxml"));
+				//root.getChildren().add(listView);
 				Stage stage = new Stage();
 				stage.setTitle("Menu");
 				stage.setScene(new Scene(root, 450, 450));
@@ -59,7 +59,7 @@ public class LoginController {
 	
 	public void HandleRegisterButtonClick(ActionEvent event) throws IOException {
 		try {
-				Parent root = FXMLLoader.load(getClass().getResource("../view/Register.fxml")); 
+				Parent root = FXMLLoader.load(getClass().getResource("../view/Register.fxml"));
 				Stage stage = new Stage();
 				stage.setTitle("Register");
 				stage.setScene(new Scene(root, 450, 450));

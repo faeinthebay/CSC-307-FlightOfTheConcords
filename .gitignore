@@ -1,4 +1,5 @@
 .idea/
-CSC-307-FlightOfTheConcords.iml
+*.iml
+*.class
 CAI/target/*
 CAI/bin/*

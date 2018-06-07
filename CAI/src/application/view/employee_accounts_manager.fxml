@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AccountsManagerController">
    <children>
-      <TableView layoutY="127.0" prefHeight="537.0" prefWidth="800.0">
+      <TableView fx:id="userTable" layoutY="127.0" prefHeight="537.0" prefWidth="800.0">
          <columns>
-            <TableColumn prefWidth="200.0" text="Username" />
-            <TableColumn minWidth="82.0" prefWidth="200.0" text="First Name" />
-            <TableColumn minWidth="82.0" prefWidth="200.0" text="Last Name" />
-            <TableColumn minWidth="82.0" prefWidth="199.0" text="Status" />
+            <TableColumn fx:id="usernameColumn" prefWidth="200.0" text="Username" />
+            <TableColumn fx:id="firstnameColumn" minWidth="82.0" prefWidth="200.0" text="First Name" />
+            <TableColumn fx:id="lastnameColumn" minWidth="82.0" prefWidth="200.0" text="Last Name" />
+            <TableColumn fx:id="isEmployeeColumn" minWidth="82.0" prefWidth="199.0" text="Status" />
          </columns>
       </TableView>
       <Label layoutX="14.0" layoutY="14.0" text="Accounts Manager" />
       <Label layoutX="14.0" layoutY="70.0" text="Username" />
-      <TextField layoutX="136.0" layoutY="62.0" prefHeight="51.0" prefWidth="180.0" />
-      <ToggleButton layoutX="351.0" layoutY="62.0" mnemonicParsing="false" text="Make Employee" />
-      <ToggleButton layoutX="558.0" layoutY="62.0" mnemonicParsing="false" text="Remove Employee" />
+      <TextField fx:id="username" layoutX="136.0" layoutY="62.0" prefHeight="51.0" prefWidth="180.0" />
+      <Button fx:id="promotebutton" layoutX="351.0" layoutY="62.0" mnemonicParsing="false" text="Make Employee" onAction="#HandlePromotion" />
+      <Button fx:id="demotebutton" layoutX="558.0" layoutY="62.0" mnemonicParsing="false" text="Remove Employee"  onAction="#HandleDemotion" />
    </children>
 </AnchorPane>
