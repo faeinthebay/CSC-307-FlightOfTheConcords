@@ -81,4 +81,9 @@ public class CustomerCommonController implements CommonController {
 
 		}
 	}
+
+	@Override
+	public void goToEnd(Flight flight) {
+		
+	}
 }

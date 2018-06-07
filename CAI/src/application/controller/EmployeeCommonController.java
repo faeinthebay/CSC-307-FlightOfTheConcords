@@ -23,6 +23,7 @@ public class EmployeeCommonController implements CommonController {
 	@FXML Tab homeTab;
 	@FXML AnchorPane homePane;
 	@FXML Tab flightsTab;
+	@FXML Tab modifyFlightsTab;
 	@FXML Tab accountTab;
 	@FXML Tab schedulerTab;
 	@FXML AnchorPane flightsPane;
@@ -40,6 +41,8 @@ public class EmployeeCommonController implements CommonController {
 			flightsViewController.parentToNotify = this;
 			Pane schedulerScene = FXMLLoader.load(getClass().getResource("../view/employee_scheduler.fxml"));
 			schedulerTab.setContent(schedulerScene);
+			Pane modifyFlightsScene = FXMLLoader.load(getClass().getResource("../view/employee_flight_modify_list.fxml"));
+			modifyFlightsTab.setContent(modifyFlightsScene);
 			// Preload other scenes
 
 
@@ -93,6 +96,18 @@ public class EmployeeCommonController implements CommonController {
 			PurchaseConfirmationController checkoutController = flightsCheckoutBeginLoader.getController();
 			//checkoutController.parentToNotify = this;
 			checkoutController.initialize(flight, this);
+		} catch (IOException e){
+
+		}
+	}
+
+	public void handleBeginModify(Flight flight) {
+		try {
+			FXMLLoader modifyLoader = new FXMLLoader(getClass().getResource("../view/modify_flight.fxml"));
+			modifyFlightsTab.setContent(modifyLoader.load());
+			ModifyFlightController modifyController = modifyLoader.getController();
+			//checkoutController.parentToNotify = this;
+			modifyController.initialize(flight, this);
 		} catch (IOException e){
 
 		}
