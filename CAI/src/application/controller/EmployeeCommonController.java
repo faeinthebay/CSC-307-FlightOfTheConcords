@@ -19,7 +19,9 @@ public class EmployeeCommonController {
 	@FXML TabPane tabs;
 	@FXML Tab homeTab;
 	@FXML AnchorPane homePane;
+	@FXML Tab flightsTab;
 	@FXML Tab accountTab;
+	@FXML AnchorPane flightsPane;
 	@FXML AnchorPane accountPane;
 
 	// TODO: When tab is clicked, reset to first scene?
@@ -28,6 +30,9 @@ public class EmployeeCommonController {
 		try {
 			Pane accountScene = FXMLLoader.load(getClass().getResource("../view/employee_accounts_manager.fxml"));
 			accountTab.setContent(accountScene);
+			Pane flightsScene = FXMLLoader.load(getClass().getResource("../view/employee_all_flights.fxml"));
+			flightsTab.setContent(flightsScene);
+
 		} catch	(IOException e){ // TODO
 
 		}
