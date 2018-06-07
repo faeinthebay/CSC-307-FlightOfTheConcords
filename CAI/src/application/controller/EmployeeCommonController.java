@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.model.DB;
+import application.model.Flight;
 import application.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,17 +29,21 @@ public class EmployeeCommonController implements CommonController {
 	@FXML AnchorPane accountPane;
 	@FXML AnchorPane schedulerPane;
 
-	// TODO: When tab is clicked, reset to first scene?
-	// TODO: Test if this will memory leak (deselected tabs keep contents in memory?)
+
 	public void initialize(){ // Load all scenes into tabs
 		try {
 			Pane accountScene = FXMLLoader.load(getClass().getResource("../view/employee_accounts_manager.fxml"));
 			accountTab.setContent(accountScene);
-			Pane flightsScene = FXMLLoader.load(getClass().getResource("../view/employee_all_flights.fxml"));
-			flightsTab.setContent(flightsScene);
+			FXMLLoader flightsLoader = new FXMLLoader(getClass().getResource("../view/employee_all_flights.fxml"));
+			flightsTab.setContent(flightsLoader.load());
+			FlightsViewController flightsViewController = flightsLoader.getController();
+			flightsViewController.parentToNotify = this;
 			Pane schedulerScene = FXMLLoader.load(getClass().getResource("../view/employee_scheduler.fxml"));
 			schedulerTab.setContent(schedulerScene);
-		} catch	(IOException e){ // TODO
+			// Preload other scenes
+
+
+		} catch	(IOException e){
 
 		}
 	}
@@ -53,16 +58,28 @@ public class EmployeeCommonController implements CommonController {
 			Stage currentStage = (Stage) tabs.getScene().getWindow();
 		    currentStage.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public void handleFlightNext(int numSeats) { // TODO: Implement checkout process
+	public void handleFlightNext(int numSeats) {
 		try {
 			Pane flightsCheckoutScene = FXMLLoader.load(getClass().getResource("../view/employee_all_flights.fxml"));
 			flightsTab.setContent(flightsCheckoutScene);
+		} catch (IOException e){
+
+		}
+	}
+
+	@Override
+	public void handleBeginCheckout(Flight flight) {
+		try {
+			FXMLLoader flightsCheckoutBeginLoader = new FXMLLoader(getClass().getResource("../view/flight_checkout.fxml"));
+			flightsTab.setContent(flightsCheckoutBeginLoader.load());
+			FlightCheckoutController checkoutController = flightsCheckoutBeginLoader.getController();
+			//checkoutController.parentToNotify = this;
+			checkoutController.initialize(flight, this);
 		} catch (IOException e){
 
 		}

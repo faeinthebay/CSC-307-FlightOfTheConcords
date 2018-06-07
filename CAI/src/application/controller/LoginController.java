@@ -45,7 +45,7 @@ public class LoginController {
 				//root.getChildren().add(listView);
 				Stage stage = new Stage();
 				stage.setTitle("Menu");
-				stage.setScene(new Scene(root, 450, 450));
+				stage.setScene(new Scene(root, 800, 800));
 				stage.show();
 				
 				Stage currentStage = (Stage) username.getScene().getWindow();

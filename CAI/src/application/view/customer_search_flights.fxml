@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FlightsSearchController">
+   <children>
+      <TableView fx:id="flightsTable" layoutY="49.0" prefHeight="615.0" prefWidth="800.0">
+         <columns>
+            <TableColumn fx:id="flightNumCol" prefWidth="100.0" text="Flight Num." />
+            <TableColumn fx:id="dateCol" prefWidth="100" text="Date" />
+            <TableColumn minWidth="82.0" prefWidth="180.0" text="Departure">
+               <columns>
+                  <TableColumn fx:id="departCityCol" prefWidth="100.0" text="City" />
+                  <TableColumn fx:id="departTimeCol" prefWidth="80.0" text="Time" />
+               </columns>
+            </TableColumn>
+            <TableColumn minWidth="82.0" prefWidth="180.0" text="Arrival">
+               <columns>
+                  <TableColumn fx:id="arriveCityCol" prefWidth="100.0" text="City" />
+                  <TableColumn fx:id="arriveTimeCol" prefWidth="80.0" text="Time" />
+               </columns>
+            </TableColumn>
+            <TableColumn fx:id="seatsAvailable" prefWidth="100.0" text="Avail. seats" />
+         </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="14.0" text="All Flights" />
+   </children>
+</AnchorPane>

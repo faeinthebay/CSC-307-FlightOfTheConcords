@@ -2,8 +2,6 @@ package application.controller;
 
 import application.model.DB;
 import application.model.Flight;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.ArrayList;
 
 
-public class FlightsViewController {
+public class FlightsSearchController {
 
 	@FXML TableView<Flight> flightsTable;
 	@FXML TableColumn<Flight, Integer> flightNumCol;
@@ -22,8 +20,6 @@ public class FlightsViewController {
 	@FXML TableColumn<Flight, String> arriveCityCol;
 	@FXML TableColumn<Flight, String> arriveTimeCol;
 	@FXML TableColumn<Flight, Integer> seatsAvailable;
-
-	CommonController parentToNotify;
 
 	public void initialize(){
 		DB db = DB.getDB();
@@ -39,14 +35,6 @@ public class FlightsViewController {
 		// Populate table
 		ArrayList<Flight> flightList = db.getFlights();
 		flightsTable.getItems().addAll(flightList);
-		flightsTable.getSelectionModel().selectedIndexProperty().addListener(
-				new ChangeListener<Number>() {
-					@Override
-					public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-						parentToNotify.handleBeginCheckout(flightsTable.getItems().get(newValue.intValue()));
-					}
-				}
-		);
 	}
 
 }
