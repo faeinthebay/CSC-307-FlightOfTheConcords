@@ -21,8 +21,10 @@ public class EmployeeCommonController {
 	@FXML AnchorPane homePane;
 	@FXML Tab flightsTab;
 	@FXML Tab accountTab;
+	@FXML Tab schedulerTab;
 	@FXML AnchorPane flightsPane;
 	@FXML AnchorPane accountPane;
+	@FXML AnchorPane schedulerPane;
 
 	// TODO: When tab is clicked, reset to first scene?
 	// TODO: Test if this will memory leak (deselected tabs keep contents in memory?)
@@ -32,7 +34,8 @@ public class EmployeeCommonController {
 			accountTab.setContent(accountScene);
 			Pane flightsScene = FXMLLoader.load(getClass().getResource("../view/employee_all_flights.fxml"));
 			flightsTab.setContent(flightsScene);
-
+			Pane schedulerScene = FXMLLoader.load(getClass().getResource("../view/employee_scheduler.fxml"));
+			schedulerTab.setContent(schedulerScene);
 		} catch	(IOException e){ // TODO
 
 		}
