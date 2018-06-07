@@ -1,21 +1,40 @@
 package application.model;
 
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class Calculate_Price {
 	
-	
-	/*Price of each flight should be determined two weeks in advance (Tuesday of each week).
-     * The pricing process is as follows: The system keeps track of the percentage of empty seats
-     * during the last two weeks for the destination of the interest. Next, the system should calculate
-     * an average value of the empty seats, denoted by X, and use that to determine a fair price for the
-     * flight using the base flight price (P) according to the following formula:
-     * P = P- ((X/2)*P)
-	 */
-	public static float calculate(String routeId, int emptySeats) {
+	public static void updatePrice(String routeId, Flight flight) {
+		float totalSeats = 0;
+		float emptySeats = 0;
+		
 		DB db = DB.getDB();
-		float price = db.getBasePrice(routeId);
-		//for all flights in route, use empty seats to figure out price
-		//base price in route info
-		price = price - (((float)emptySeats / (float)2) * price);
-		return price;
+		ArrayList<Flight> flights = db.getFlightsForRoute(routeId);
+		
+		Calendar cal1 = Calendar.getInstance();
+    	int week1 = cal1.get(Calendar.WEEK_OF_YEAR);
+    	int week2 = week1-1;
+    	
+    	for(int i = 0; i < flights.size(); i++)
+    	{
+    		Flight flight2 = flights.get(i);
+    		
+    		Calendar cal2 = Calendar.getInstance();
+    		cal2.setTime(flight2.getDate());
+    		int weekCheck = cal2.get(Calendar.WEEK_OF_YEAR);
+    		
+    		if(weekCheck == week1 || weekCheck == week2)
+    		{
+    			totalSeats += flight2.getCapacity();
+    			emptySeats += flight2.getEmptySeats();
+    		}
+    	}
+		
+		int price = (int)Math.floor((db.getBasePrice(routeId) - (((emptySeats/totalSeats) / 2) * db.getBasePrice(routeId))));
+		flight.updatePrice(price);
 	}
 }
