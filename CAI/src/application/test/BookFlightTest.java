@@ -18,21 +18,24 @@ import java.lang.*;
 class BookFlightTest {
 
 	@Test
-	void testValidReservation() throws Exception {
+	void testCreatedReservation() throws Exception {
 		DB db = DB.getDB();
 		Flight testFlight = db.getFlight(1);
-		BookFlight testBook = new BookFlight(testFlight, 20);
-		assertFalse(testBook.validReservation() == false);
+		BookFlight testBook = new BookFlight(testFlight, 40);
+		assertTrue(testBook.createReservation("Michael") == true);
+		
+		BookFlight testBook2 = new BookFlight(testFlight, 1);
+		assertFalse(testBook2.createReservation("Ayan") == true);
 	}
 	
-	/*
 	@Test
-	void testCheckAccount() throws Exception {
+	void test() throws Exception {
 		DB db = DB.getDB();
 		User testuser = db.checkAccount("testnouser", "testnopass");
 		assertTrue(testuser == null);
 	}
 	
+	/*
 	@Test
 	void testCheckUserPrivilege() throws Exception {
 		DB db = DB.getDB();
