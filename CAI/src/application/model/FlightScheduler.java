@@ -2,6 +2,7 @@ package application.model;
 
 import java.util.ArrayList;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -165,9 +166,11 @@ public class FlightScheduler
     		
     		int duration = db.getDuration(routeID);
     		//calculate the arrival time (if we need it)
-    		
-    		//Flight flight = new Flight(flights.size(), routeID, time, NEWTIME, "ONTIME", 20, duration);
+    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy");
+    		String formattedDate = date.format(formatter);
+    		Flight flight = new Flight(flights.size(), routeID, formattedDate, time, "ONTIME", 20, duration);
     		//Create flight and add it to DB, flights array
+    		db.addFlight(flight);
     	}
     	else
     	{
@@ -175,9 +178,11 @@ public class FlightScheduler
     		
     		int duration = db.getDuration(routeID);
 	  		//calculate the departure time (if we need it)
-    		
-    		//Flight flight = new Flight(flights.size(), routeID, NEWTIME, time, "ONTIME", 20, duration);
+    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy");
+    		String formattedDate = date.format(formatter);
+    		Flight flight = new Flight(flights.size(), routeID, formattedDate, time, "ONTIME", 20, duration);
     		//Create flight and add it to DB, flights array
+    		db.addFlight(flight);
     	}
 			
     }
