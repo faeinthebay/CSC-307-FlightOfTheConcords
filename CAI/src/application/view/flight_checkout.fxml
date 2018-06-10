@@ -7,31 +7,30 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FlightCheckoutController">
    <children>
       <Label layoutX="317.0" layoutY="8.0" text="Flight Checkout" />
-      <TableView fx:id="flightTable" layoutY="49.0" prefHeight="190.0" prefWidth="800.0">
-        <columns>
-            <TableColumn fx:id="flightNumCol" prefWidth="100.0" text="Flight Num." />
-            <TableColumn fx:id="dateCol" prefWidth="100" text="Date" />
+      <Label layoutX="14.0" layoutY="453.0" text="Number of tickets" />
+      <ComboBox fx:id="numTicketsDesired" layoutX="215.0" layoutY="445.0" prefHeight="51.0" prefWidth="111.0" />
+      <Button fx:id="beginCheckout" layoutX="587.0" layoutY="525.0" mnemonicParsing="false" text="Begin Checkout" />
+      <Label layoutX="93.0" layoutY="533.0" text="Total Price" />
+      <Label fx:id="totalPrice" layoutX="215.0" layoutY="533.0" text="PRICE GOES HERE" />
+      <TableView fx:id="flightsTable" layoutY="43.0" prefHeight="372.0" prefWidth="800.0">
+         <columns>
+            <TableColumn fx:id="flightNumCol1" prefWidth="104.0" text="Flight #" />
+            <TableColumn fx:id="dateCol1" prefWidth="96.0" text="Date" />
             <TableColumn minWidth="82.0" prefWidth="180.0" text="Departure">
-                <columns>
-                    <TableColumn fx:id="departCityCol" prefWidth="100.0" text="City" />
-                    <TableColumn fx:id="departTimeCol" prefWidth="80.0" text="Time" />
-                </columns>
+               <columns>
+                  <TableColumn fx:id="departCityCol1" prefWidth="100.0" text="City" />
+                  <TableColumn fx:id="departTimeCol1" prefWidth="80.0" text="Time" />
+               </columns>
             </TableColumn>
             <TableColumn minWidth="82.0" prefWidth="180.0" text="Arrival">
-                <columns>
-                    <TableColumn fx:id="arriveCityCol" prefWidth="100.0" text="City" />
-                    <TableColumn fx:id="arriveTimeCol" prefWidth="80.0" text="Time" />
-                </columns>
+               <columns>
+                  <TableColumn fx:id="arriveCityCol1" prefWidth="100.0" text="City" />
+                  <TableColumn fx:id="arriveTimeCol1" prefWidth="80.0" text="Time" />
+               </columns>
             </TableColumn>
-            <TableColumn fx:id="seatsAvailable" prefWidth="100.0" text="Avail. seats" />
-        </columns>
+            <TableColumn fx:id="seatsAvailable2" prefWidth="138.0" text="Avail. seats" />
+            <TableColumn fx:id="seatsAvailable1" prefWidth="101.0" text="Price" />
+         </columns>
       </TableView>
-      <Label layoutX="14.0" layoutY="299.0" text="Num. of tickets" />
-      <Label layoutX="307.0" layoutY="299.0" text="Price of each seat" />
-      <ComboBox fx:id="numTicketsDesired" layoutX="180.0" layoutY="291.0" prefHeight="35.0" prefWidth="40.0" />
-      <Button fx:id="beginCheckout" layoutX="587.0" layoutY="371.0" mnemonicParsing="false" text="Begin Checkout" />
-      <Label layoutX="14.0" layoutY="379.0" text="Total Price" />
-      <Label fx:id="seatPrice" layoutX="501.0" layoutY="299.0" text="PRICE GOES HERE" />
-      <Label fx:id="totalPrice" layoutX="136.0" layoutY="379.0" text="PRICE GOES HERE" />
    </children>
 </AnchorPane>
