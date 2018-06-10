@@ -110,15 +110,15 @@ public class DB {
 	public ArrayList<Flight> getFlights() {
 		ArrayList<Flight> flights = null;
 		try {
-			String sql = "SELECT flights.*,routes.duration FROM FLIGHTS,ROUTES WHERE flights.routeId=routes.routeId";
+			String sql = "SELECT flights.*,routes.duration, routes.origin, routes.destination FROM FLIGHTS,ROUTES WHERE flights.routeId=routes.routeId";
 			statement = conn.createStatement();
 			result = statement.executeQuery(sql);
 			flights = new ArrayList<Flight>();
 			while (result.next()) {
 				Flight flight = new Flight(result.getInt("flightId"), result.getString("routeId"), result.getString("departDate"), result.getString("departTime"), result.getString("status"), result.getInt("emptySeats"), result.getInt("duration"));
-				String[] cities = getRouteOriginDest(flight.getRoute());
-				flight.setDepartCity(cities[0]);
-				flight.setArriveCity(cities[1]);
+			//	String[] cities = getRouteOriginDest(flight.getRoute());
+				flight.setDepartCity(result.getString("origin"));
+				flight.setArriveCity(result.getString("destination"));
 				flights.add(flight);
 			}
 			result.close();

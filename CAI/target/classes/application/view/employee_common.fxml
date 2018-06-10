@@ -23,6 +23,11 @@
                   <AnchorPane fx:id="schedulerPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
+            <Tab fx:id="modifyFlightsTab" text="Modify">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                </content>
+            </Tab>
             <Tab fx:id="accountTab" text="Accounts">
                <content>
                   <AnchorPane fx:id="accountPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />

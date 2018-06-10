@@ -4,27 +4,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PurchaseConfirmationController">
    <children>
       <Label layoutX="282.0" layoutY="14.0" text="Purchase confirmation" />
-      <TableView layoutY="49.0" prefHeight="190.0" prefWidth="800.0">
+      <TableView fx:id="flightTable" layoutY="49.0" prefHeight="190.0" prefWidth="800.0">
          <columns>
-            <TableColumn prefWidth="175.0" text="Flight Num." />
-            <TableColumn minWidth="82.0" prefWidth="460.0" text="Departure">
+            <TableColumn fx:id="flightNumCol" prefWidth="100.0" text="Flight Num." />
+            <TableColumn fx:id="dateCol" prefWidth="100" text="Date" />
+            <TableColumn minWidth="82.0" prefWidth="180.0" text="Departure">
                <columns>
-                  <TableColumn prefWidth="75.0" text="City" />
-                  <TableColumn prefWidth="75.0" text="Date" />
-                  <TableColumn prefWidth="75.0" text="Time" />
+                  <TableColumn fx:id="departCityCol" prefWidth="100.0" text="City" />
+                  <TableColumn fx:id="departTimeCol" prefWidth="80.0" text="Time" />
                </columns>
             </TableColumn>
-            <TableColumn minWidth="82.0" prefWidth="460.0" text="Arrival">
+            <TableColumn minWidth="82.0" prefWidth="180.0" text="Arrival">
                <columns>
-                  <TableColumn prefWidth="75.0" text="City" />
-                  <TableColumn prefWidth="75.0" text="Date" />
-                  <TableColumn prefWidth="75.0" text="Time" />
+                  <TableColumn fx:id="arriveCityCol" prefWidth="100.0" text="City" />
+                  <TableColumn fx:id="arriveTimeCol" prefWidth="80.0" text="Time" />
                </columns>
             </TableColumn>
-            <TableColumn prefWidth="175.0" text="Avail. seats" />
+            <TableColumn fx:id="seatsAvailable" prefWidth="100.0" text="Avail. seats" />
          </columns>
       </TableView>
       <TableView layoutY="258.0" prefHeight="134.0" prefWidth="800.0">
@@ -33,14 +32,6 @@
           <TableColumn minWidth="0.0" prefWidth="210.0" text="Seats purchased" />
             <TableColumn minWidth="0.0" prefWidth="295.0" text="Total Price" />
         </columns>
-      </TableView>
-      <TableView layoutY="415.0" prefHeight="134.0" prefWidth="800.0">
-         <columns>
-            <TableColumn prefWidth="190.0" text="First name" />
-            <TableColumn prefWidth="190.0" text="Last name" />
-            <TableColumn prefWidth="155.0" text="Birthdate" />
-            <TableColumn prefWidth="264.0" text="Phone #" />
-         </columns>
       </TableView>
       <Button layoutX="29.0" layoutY="577.0" mnemonicParsing="false" text="Cancel" />
       <Button layoutX="647.0" layoutY="577.0" mnemonicParsing="false" text="Purchase" />

@@ -41,8 +41,10 @@ public class EmployeeCommonController implements CommonController {
 			flightsViewController.parentToNotify = this;
 			Pane schedulerScene = FXMLLoader.load(getClass().getResource("../view/employee_scheduler.fxml"));
 			schedulerTab.setContent(schedulerScene);
-			Pane modifyFlightsScene = FXMLLoader.load(getClass().getResource("../view/employee_flight_modify_list.fxml"));
-			modifyFlightsTab.setContent(modifyFlightsScene);
+			FXMLLoader modifyListLoader = new FXMLLoader(getClass().getResource("../view/employee_flight_modify_list.fxml"));
+			modifyFlightsTab.setContent(modifyListLoader.load());
+			FlightsModifyListController modifyListController = modifyListLoader.getController();
+			modifyListController.parentToNotify =this;
 			// Preload other scenes
 
 
