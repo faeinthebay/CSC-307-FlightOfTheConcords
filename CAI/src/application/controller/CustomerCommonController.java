@@ -20,23 +20,24 @@ public class CustomerCommonController implements CommonController {
 	@FXML Tab homeTab;
 	@FXML AnchorPane homePane;
 	@FXML Tab flightsTab;
-	@FXML Tab accountTab;
-	@FXML Tab schedulerTab;
+	@FXML Tab myFlightTab;
+	@FXML Tab flightStatusTab;
+	@FXML Tab checkinTab;
 	@FXML AnchorPane flightsPane;
-	@FXML AnchorPane accountPane;
-	@FXML AnchorPane schedulerPane;
 
 
 	public void initialize(){ // Load all scenes into tabs
 		try {
-			Pane accountScene = FXMLLoader.load(getClass().getResource("../view/employee_accounts_manager.fxml"));
-			accountTab.setContent(accountScene);
 			FXMLLoader flightsLoader = new FXMLLoader(getClass().getResource("../view/employee_all_flights.fxml"));
 			flightsTab.setContent(flightsLoader.load());
 			FlightsViewController flightsViewController = flightsLoader.getController();
 			flightsViewController.parentToNotify = this;
-			Pane schedulerScene = FXMLLoader.load(getClass().getResource("../view/employee_scheduler.fxml"));
-			schedulerTab.setContent(schedulerScene);
+			FXMLLoader checkinLoader = new FXMLLoader(getClass().getResource("../view/customer_confirmation_number_checkin.fxml"));
+			checkinTab.setContent(checkinLoader.load());
+			FXMLLoader myFlightsLoader = new FXMLLoader(getClass().getResource("../view/customer_my_flights.fxml"));
+			myFlightTab.setContent(myFlightsLoader.load());
+			FXMLLoader flightStatusLoader = new FXMLLoader(getClass().getResource("../view/flight_status.fxml"));
+			flightStatusTab.setContent(flightStatusLoader.load());
 			// Preload other scenes
 
 
@@ -72,7 +73,7 @@ public class CustomerCommonController implements CommonController {
 	@Override
 	public void handleBeginCheckout(Flight flight) {
 		try {
-			FXMLLoader flightsCheckoutBeginLoader = new FXMLLoader(getClass().getResource("../view/flight_checkout.fxml"));
+			FXMLLoader flightsCheckoutBeginLoader = new FXMLLoader(getClass().getResource("../view/customer_flight_checkout.fxml"));
 			flightsTab.setContent(flightsCheckoutBeginLoader.load());
 			FlightCheckoutController checkoutController = flightsCheckoutBeginLoader.getController();
 			//checkoutController.parentToNotify = this;
@@ -84,6 +85,14 @@ public class CustomerCommonController implements CommonController {
 
 	@Override
 	public void goToEnd(Flight flight) {
-		
+		try {
+			FXMLLoader flightsCheckoutBeginLoader = new FXMLLoader(getClass().getResource("../view/purchase_confirmation.fxml"));
+			flightsTab.setContent(flightsCheckoutBeginLoader.load());
+			PurchaseConfirmationController checkoutController = flightsCheckoutBeginLoader.getController();
+			//checkoutController.parentToNotify = this;
+			checkoutController.initialize(flight, this);
+		} catch (IOException e){
+
+		}
 	}
 }
