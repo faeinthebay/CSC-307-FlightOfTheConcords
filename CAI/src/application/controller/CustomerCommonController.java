@@ -32,12 +32,12 @@ public class CustomerCommonController implements CommonController {
 			flightsTab.setContent(flightsLoader.load());
 			FlightsViewController flightsViewController = flightsLoader.getController();
 			flightsViewController.parentToNotify = this;
-			FXMLLoader checkinLoader = new FXMLLoader(getClass().getResource("../view/customer_confirmation_number_checkin.fxml"));
-			checkinTab.setContent(checkinLoader.load());
 			FXMLLoader myFlightsLoader = new FXMLLoader(getClass().getResource("../view/customer_my_flights.fxml"));
 			myFlightTab.setContent(myFlightsLoader.load());
 			FXMLLoader flightStatusLoader = new FXMLLoader(getClass().getResource("../view/flight_status.fxml"));
 			flightStatusTab.setContent(flightStatusLoader.load());
+			FXMLLoader checkinLoader = new FXMLLoader(getClass().getResource("../view/check_in.fxml"));
+			checkinTab.setContent(checkinLoader.load());
 			// Preload other scenes
 
 

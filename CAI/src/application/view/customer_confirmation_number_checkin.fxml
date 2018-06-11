@@ -4,11 +4,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TicketholderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CheckInController">
    <children>
       <Label layoutX="270.0" layoutY="14.0" text="Confirmation # Check-In" />
-      <Label layoutX="235.0" layoutY="186.0" text="Confirmation #" />
-      <TextField layoutX="400.0" layoutY="178.0" prefHeight="51.0" prefWidth="174.0" />
-      <Button layoutX="660.0" layoutY="397.0" mnemonicParsing="false" text="Check-In" />
+      <Label layoutX="247.0" layoutY="187.0" text="Confirmation No:" />
+      <Button fx:id="checkinbutton" layoutX="660.0" layoutY="397.0" mnemonicParsing="false" onAction="#checkInFlight" text="Check-In" />
+      <TextField fx:id="confirmationNumber" layoutX="353.0" layoutY="184.0" prefHeight="25.0" prefWidth="212.0" />
    </children>
 </AnchorPane>

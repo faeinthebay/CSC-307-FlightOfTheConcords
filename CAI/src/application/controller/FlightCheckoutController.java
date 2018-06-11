@@ -40,12 +40,14 @@ public class FlightCheckoutController {
 		arriveTimeCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("ArrivalTime"));
 		seatsAvailable.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("EmptySeats"));
 		// Populate table
+		flightTable.getItems().clear();
 		flightTable.getItems().add(flight);
 		// Populate seats drop-down
 		ObservableList<Integer> seatOptions = FXCollections.observableArrayList();
 		for(int i = 0; i < flight.getEmptySeats(); i++){
 			seatOptions.add(i);
 		}
+	//	numTicketsDesired.getItems().setAll(1,2,3,4,5,6,7,8,9,10);
 		numTicketsDesired.setItems(seatOptions);
 		numTicketsDesired.getSelectionModel().selectedItemProperty().addListener(
 				new ChangeListener<Integer>() {
