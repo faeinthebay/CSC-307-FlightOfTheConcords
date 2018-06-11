@@ -4,26 +4,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CheckInController">
    <children>
-      <Label layoutX="317.0" layoutY="7.0" text="Check in details" />
-      <TableView layoutY="42.0" prefHeight="190.0" prefWidth="800.0">
+      <Label layoutX="348.0" layoutY="14.0" text="Check in details" />
+      <TableView fx:id="resTable" layoutY="133.0" prefHeight="190.0" prefWidth="800.0">
          <columns>
-            <TableColumn prefWidth="238.0" text="Confirmation Num." />
-            <TableColumn minWidth="82.0" prefWidth="150.0" text="Flight Num." />
-            <TableColumn minWidth="82.0" prefWidth="129.0" text="Price Paid" />
-            <TableColumn minWidth="82.0" prefWidth="142.0" text="Seats Avail." />
-            <TableColumn minWidth="82.0" prefWidth="140.0" text="Checked In" />
+            <TableColumn fx:id="confnumcol" prefWidth="238.0" text="Confirmation Num." />
+            <TableColumn fx:id="flightidcol" minWidth="82.0" prefWidth="150.0" text="Flight Num." />
+            <TableColumn fx:id="pricecol" minWidth="82.0" prefWidth="129.0" text="Price Paid" />
          </columns>
       </TableView>
-      <Button layoutX="633.0" layoutY="565.0" mnemonicParsing="false" text="Check In" />
-      <ChoiceBox layoutX="545.0" layoutY="319.0" prefWidth="150.0" />
-      <Label layoutX="558.0" layoutY="296.0" text="# of Bags" />
-      <TableView layoutX="45.0" layoutY="305.0" prefHeight="200.0" prefWidth="350.0">
+      <Button fx:id="checkinbutton" layoutX="589.0" layoutY="530.0" mnemonicParsing="false" text="Check In" />
+      <ChoiceBox fx:id="bags" layoutX="545.0" layoutY="393.0" prefWidth="150.0" />
+      <Label layoutX="547.0" layoutY="362.0" text="No. of Bags" />
+      <TableView fx:id="flyerTable" layoutX="45.0" layoutY="355.0" prefHeight="200.0" prefWidth="350.0">
         <columns>
-          <TableColumn prefWidth="237.0" text="Passengers" />
-          <TableColumn prefWidth="112.0" text="Seats" />
+          <TableColumn fx:id="passengers" prefWidth="237.0" text="Passengers" />
+          <TableColumn fx:id="seats" prefWidth="112.0" text="Seats" />
         </columns>
       </TableView>
+      <TextField fx:id="confirmationNumber" layoutX="177.0" layoutY="68.0" prefHeight="25.0" prefWidth="212.0" />
+      <Label layoutX="71.0" layoutY="71.0" text="Confirmation No:" />
+      <Button fx:id="confirmationbutton" layoutX="406.0" layoutY="67.0" mnemonicParsing="false" onAction="#checkInFlight" text="GO" />
+      <Hyperlink fx:id="baggagepolicy" layoutX="576.0" layoutY="432.0" onAction="#baggagePolicy" text="Baggage Policy" />
    </children>
 </AnchorPane>

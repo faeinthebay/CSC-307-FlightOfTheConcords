@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EmployeeCommonController">
    <children>
-      <TabPane fx:id="tabs" layoutY="80.0" prefHeight="520.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabs" layoutY="80.0" prefHeight="650.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab fx:id="flightsTab" text="Flights">
                <content>
