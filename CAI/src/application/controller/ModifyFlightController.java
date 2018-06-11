@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.model.DB;
 import application.model.Flight;
 import application.model.FlightScheduler;
 import javafx.collections.FXCollections;
@@ -40,7 +41,6 @@ public class ModifyFlightController {
 		// Populate table
 		flightTable.getItems().add(flight);
 		// Prepare fields
-		Flight finalFlight = flight;
 		ObservableList<String> statuses = FXCollections.observableArrayList("ONTIME", "DELAYED", "CANCELED");
 		statusField.setItems(statuses);
 		ObservableList<String> times = FXCollections.observableArrayList(FlightScheduler.getRunwayTimes());
@@ -48,9 +48,11 @@ public class ModifyFlightController {
 		submitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				finalFlight.changeDate(Date.from(departureDateField.getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
-				finalFlight.setDepartTime(departureTimeField.getValue());
-				finalFlight.updateStatus((String)(statusField.getValue()));
+				flight.changeDate(Date.from(departureDateField.getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+				flight.setDepartTime(departureTimeField.getValue());
+				flight.updateStatus((String)(statusField.getValue()));
+				DB db = DB.getDB();
+				db.updateFlight(flight);
 			}
 		});
 	}
