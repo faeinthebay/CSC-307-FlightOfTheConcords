@@ -154,7 +154,7 @@ public class DB {
 	public Flight getFlight(int flightId) {
 		Flight flight = null;
 		try {
-			String sql = "SELECT flights.*,routes., routes.origin, routes.destination FROM FLIGHTS,ROUTES WHERE flights.flightId=?";
+			String sql = "SELECT flights.*,routes.duration, routes.origin, routes.destination FROM FLIGHTS,ROUTES WHERE flights.flightId=?";
 			preparedstatement = conn.prepareStatement(sql);
 			preparedstatement.setInt(1, flightId);
 			result = preparedstatement.executeQuery();
@@ -272,7 +272,7 @@ public class DB {
 			result = preparedstatement.executeQuery();
 			res = new Reservation(result.getInt("flightId"), result.getString("reservationHolder"), result.getInt("numSeats"));
 			res.setConfirmationNumber(confNum);
-			res.setDateReserved(result.getString("dateResrved"));
+			res.setDateReserved(result.getString("dateReserved"));
 			res.setPricePaid(result.getInt("pricePaid"));
 			result.close();
 			preparedstatement.close();

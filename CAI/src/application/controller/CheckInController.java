@@ -12,6 +12,7 @@ import application.model.Reservation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableColumn;
@@ -31,7 +32,7 @@ public class CheckInController {
 	@FXML TableView<Reservation> flyerTable;
 	@FXML TableColumn<Reservation, String>passengers;
 	@FXML TableColumn<Reservation, String>seats;
-	@FXML ComboBox<Integer> bags;
+	@FXML ChoiceBox<Integer> bags;
 	
 	
 	public void initialize(){

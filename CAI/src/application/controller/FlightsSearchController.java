@@ -34,6 +34,7 @@ public class FlightsSearchController {
 		arriveCityCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("ArriveCity"));
 		// Populate table
 		ArrayList<Flight> flightList = db.getFlights();
+		flightsTable.getItems().clear();
 		flightsTable.getItems().addAll(flightList);
 	}
 
