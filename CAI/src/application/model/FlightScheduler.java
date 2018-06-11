@@ -31,39 +31,45 @@ public class FlightScheduler
     	}
     	return true;
 	}
+
+	public static ArrayList<String> getRunwayTimesList(){
+		ArrayList<String> times = new ArrayList<String>();
+		times.add("06:00");
+		times.add("06:40");
+		times.add("07:20");
+		times.add("08:00");
+		times.add("08:40");
+		times.add("09:20");
+		times.add("10:00");
+		times.add("10:40");
+		times.add("11:20");
+		times.add("12:00");
+		times.add("12:40");
+		times.add("13:20");
+		times.add("14:00");
+		times.add("14:40");
+		times.add("15:20");
+		times.add("16:00");
+		times.add("16:40");
+		times.add("17:20");
+		times.add("18:00");
+		times.add("18:40");
+		times.add("19:20");
+		times.add("20:00");
+		times.add("20:40");
+		times.add("21:20");
+		times.add("22:00");
+		times.add("22:40");
+		times.add("23:20");
+		times.add("24:00");
+
+		return times;
+	}
 	
 	public static ArrayList<String> getRunwayTimes()
 	{
-		ArrayList<String> times = new ArrayList<String>();   	
-    	times.add("06:00");
-    	times.add("06:40");
-    	times.add("07:20");
-    	times.add("08:00");
-    	times.add("08:40");
-    	times.add("09:20");
-    	times.add("10:00");
-    	times.add("10:40");
-    	times.add("11:20");
-    	times.add("12:00");
-    	times.add("12:40");
-    	times.add("13:20");
-    	times.add("14:00");
-    	times.add("14:40");
-    	times.add("15:20");
-    	times.add("16:00");
-    	times.add("16:40");
-    	times.add("17:20");
-    	times.add("18:00");
-    	times.add("18:40");
-    	times.add("19:20");
-    	times.add("20:00");
-    	times.add("20:40");
-    	times.add("21:20");
-    	times.add("22:00");
-    	times.add("22:40");
-    	times.add("23:20");
-    	times.add("24:00");
-    	
+		ArrayList<String> times = getRunwayTimesList();
+
     	runwayTimes = getRunwayTimes(flights, times);
     	
     	return runwayTimes;

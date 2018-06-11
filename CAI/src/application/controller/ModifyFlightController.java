@@ -43,7 +43,7 @@ public class ModifyFlightController {
 		// Prepare fields
 		ObservableList<String> statuses = FXCollections.observableArrayList("ONTIME", "DELAYED", "CANCELED");
 		statusField.setItems(statuses);
-		ObservableList<String> times = FXCollections.observableArrayList(FlightScheduler.getRunwayTimes());
+		ObservableList<String> times = FXCollections.observableArrayList(FlightScheduler.getRunwayTimesList());
 		departureTimeField.setItems(times);
 		submitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
