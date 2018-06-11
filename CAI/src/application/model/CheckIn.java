@@ -28,7 +28,7 @@ public class CheckIn
 		return true;
 	}
 	
-	private boolean validReservation()
+	public boolean validReservation()
 	{
 		if(valid == true)
 			return true;
@@ -39,6 +39,10 @@ public class CheckIn
 			return true;
 		}		
 		return false;
+	}
+	
+	public Reservation getRes() {
+		return reservation;
 	}
 	
 	public void reserveBags()

@@ -132,13 +132,15 @@ public class DB {
 	public ArrayList<Flight> getFlightsForRoute(String routeId) {
 		ArrayList<Flight> flights = null;
 		try {
-			String sql = "SELECT flights.*,routes.duration FROM FLIGHTS,ROUTES WHERE flights.routeId=?";
+			String sql = "SELECT flights.*,routes.duration, routes.origin, routes.destination FROM FLIGHTS,ROUTES WHERE flights.routeId=?";
 			preparedstatement = conn.prepareStatement(sql);
 			preparedstatement.setString(1,  routeId);
 			result = preparedstatement.executeQuery();
 			flights = new ArrayList<Flight>();
 			while (result.next()) {
 				Flight flight = new Flight(result.getInt("flightId"), result.getString("routeId"), result.getString("departDate"), result.getString("departTime"), result.getString("status"), result.getInt("emptySeats"), result.getInt("duration"));
+				flight.setDepartCity(result.getString("origin"));
+				flight.setArriveCity(result.getString("destination"));
 				flights.add(flight);
 			}
 			result.close();
@@ -152,11 +154,13 @@ public class DB {
 	public Flight getFlight(int flightId) {
 		Flight flight = null;
 		try {
-			String sql = "SELECT flights.*,routes.duration FROM FLIGHTS,ROUTES WHERE flights.flightId=?";
+			String sql = "SELECT flights.*,routes., routes.origin, routes.destination FROM FLIGHTS,ROUTES WHERE flights.flightId=?";
 			preparedstatement = conn.prepareStatement(sql);
 			preparedstatement.setInt(1, flightId);
 			result = preparedstatement.executeQuery();
 			flight = new Flight(result.getInt("flightId"), result.getString("routeId"), result.getString("departDate"), result.getString("departTime"), result.getString("status"), result.getInt("emptySeats"), result.getInt("duration"));
+			flight.setDepartCity(result.getString("origin"));
+			flight.setArriveCity(result.getString("destination"));
 			result.close();
 			preparedstatement.close();
 		} catch (SQLException e) {
