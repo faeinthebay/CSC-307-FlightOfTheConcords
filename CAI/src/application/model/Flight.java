@@ -58,6 +58,11 @@ public class Flight {
 		departCity = depart;
 	}
 
+	public void setDepartTime(String departTime){
+		this.departTime = departTime;
+	}
+
+
 	public void setArriveCity(String arrive){
 		arriveCity = arrive;
 	}
@@ -134,6 +139,11 @@ public class Flight {
 	
 	public void updateRoute(String newRoute) {
 		routeId = newRoute;
+	}
+
+	public void changeDate(Date newDate) {
+		date = newDate;
+		departDate = new SimpleDateFormat("dd-MM-yy").format(newDate);
 	}
 	
 	public String toString() {
