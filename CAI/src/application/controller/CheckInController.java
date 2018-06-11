@@ -28,11 +28,10 @@ public class CheckInController {
 	@FXML TableColumn<Reservation, Integer> confnumcol;
 	@FXML TableColumn<Reservation, Integer> flightidcol;
 	@FXML TableColumn<Reservation, Integer> pricecol;
-	@FXML TableView<Reservation> flyersTable;
+	@FXML TableView<Reservation> flyerTable;
 	@FXML TableColumn<Reservation, String>passengers;
 	@FXML TableColumn<Reservation, String>seats;
 	@FXML ComboBox<Integer> bags;
-	@FXML Hyperlink baggagepolicy;
 	
 	
 	public void initialize(){
@@ -57,7 +56,9 @@ public class CheckInController {
 		
 	public void UpdateTables(Reservation reservation) {
 		resTable.getItems().clear();
+		flyerTable.getItems().clear();
 		resTable.getItems().add(reservation);
+		flyerTable.getItems().add(reservation);
 		
 	}
 	
