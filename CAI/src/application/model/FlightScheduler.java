@@ -108,6 +108,18 @@ public class FlightScheduler
 				routeID = "CA12";
 		}
 	}
+
+	private static ArrayList<String> getCitiesList(){
+		ArrayList<String> departCities = new ArrayList<String>();
+		departCities.add("SLO");
+		departCities.add("LAX");
+		departCities.add("SFO");
+		departCities.add("SDO");
+		departCities.add("ARZ");
+		departCities.add("STL");
+		departCities.add("DAL");
+		return departCities;
+	}
 	
     private static boolean checkRoute(String routeID)
     {    	
