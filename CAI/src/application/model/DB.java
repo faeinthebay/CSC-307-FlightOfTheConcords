@@ -184,13 +184,14 @@ public class DB {
 	
 	public void addFlight(Flight flight) {
 		try {
-			String sql= "INSERT INTO flights (routeId, departDate, departTime, status, emptySeats) VALUES (?,?,?,?,?)";
+			String sql= "INSERT INTO flights (routeId, departDate, departTime, status, emptySeats, price) VALUES (?,?,?,?,?,?)";
 			preparedstatement=conn.prepareStatement(sql);
 			preparedstatement.setString(1, flight.getRoute());
 			preparedstatement.setString(2, flight.getDepartDate());
 			preparedstatement.setString(3, flight.getDepartTime());
 			preparedstatement.setString(4, flight.getStatus());
 			preparedstatement.setInt(5, flight.getEmptySeats());
+			preparedstatement.setInt(6, flight.getPrice());
 			preparedstatement.executeUpdate();
 			preparedstatement.close();
 		} catch (SQLException e) {
