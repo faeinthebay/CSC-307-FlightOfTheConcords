@@ -22,6 +22,7 @@ public class PurchaseConfirmationController {
 	@FXML TableColumn<Flight, String> arriveCityCol;
 	@FXML TableColumn<Flight, String> arriveTimeCol;
 	@FXML TableColumn<Flight, Integer> seatsAvailable;
+	Flight flight;
 
 	public void initialize(Flight flight, CommonController parentToNotify){
 		// Associate Flight fields with table columns with JavaFX magic that somehow figures out method names
@@ -38,5 +39,9 @@ public class PurchaseConfirmationController {
 		for(int i = 0; i < flight.getEmptySeats(); i++){
 			seatOptions.add(i);
 		}
+	}
+
+	public void setFlight(Flight flight){
+		this.flight = flight;
 	}
 }

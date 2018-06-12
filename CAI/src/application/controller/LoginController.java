@@ -53,7 +53,8 @@ public class LoginController {
 				Stage currentStage = (Stage) username.getScene().getWindow();
 			    currentStage.close();
 			} else {
-				
+				username.clear();
+				password.clear();
 			}
 		} catch (IOException e) {
             e.printStackTrace();
