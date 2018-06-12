@@ -40,18 +40,21 @@ public class LoginController {
 					obj = flights.get(i);
 					data.add(obj.toString());
 				}
-				//ListView<String> listView = new ListView<String>(data);
-				root = FXMLLoader.load(getClass().getResource("../view/employee_common.fxml"));
-				//root.getChildren().add(listView);
+				if (user.getPrivilege() == 1) {
+					root = FXMLLoader.load(getClass().getResource("../view/employee_common.fxml"));
+				} else {
+					root = FXMLLoader.load(getClass().getResource("../view/customer_common.fxml"));
+				}
 				Stage stage = new Stage();
-				stage.setTitle("Menu");
-				stage.setScene(new Scene(root, 450, 450));
+				stage.setTitle("CAI");
+				stage.setScene(new Scene(root, 800, 800));
 				stage.show();
 				
 				Stage currentStage = (Stage) username.getScene().getWindow();
 			    currentStage.close();
 			} else {
-				
+				username.clear();
+				password.clear();
 			}
 		} catch (IOException e) {
             e.printStackTrace();

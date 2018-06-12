@@ -1,20 +1,20 @@
 package application.controller;
 
-import application.model.DB;
 import application.model.Flight;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.util.ArrayList;
 
+public class PurchaseConfirmationController {
 
-public class FlightsViewController {
-
-	@FXML TableView<Flight> flightsTable;
+	@FXML TableView<Flight> flightTable;
 	@FXML TableColumn<Flight, Integer> flightNumCol;
 	@FXML TableColumn<Flight, String> departCityCol;
 	@FXML TableColumn<Flight, String> dateCol;
@@ -22,11 +22,9 @@ public class FlightsViewController {
 	@FXML TableColumn<Flight, String> arriveCityCol;
 	@FXML TableColumn<Flight, String> arriveTimeCol;
 	@FXML TableColumn<Flight, Integer> seatsAvailable;
+	Flight flight;
 
-	CommonController parentToNotify;
-
-	public void initialize(){
-		DB db = DB.getDB();
+	public void initialize(Flight flight, CommonController parentToNotify){
 		// Associate Flight fields with table columns with JavaFX magic that somehow figures out method names
 		// TODO: Lookup depart city by route
 		flightNumCol.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("FlightId"));
@@ -34,19 +32,16 @@ public class FlightsViewController {
 		departTimeCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartTime"));
 		arriveTimeCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("ArrivalTime"));
 		seatsAvailable.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("EmptySeats"));
-		departCityCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartCity"));
-		arriveCityCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("ArriveCity"));
 		// Populate table
-		ArrayList<Flight> flightList = db.getFlights();
-		flightsTable.getItems().addAll(flightList);
-		flightsTable.getSelectionModel().selectedIndexProperty().addListener(
-				new ChangeListener<Number>() {
-					@Override
-					public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-						parentToNotify.handleBeginCheckout(flightsTable.getItems().get(newValue.intValue()));
-					}
-				}
-		);
+		flightTable.getItems().add(flight);
+		// Populate seats drop-down
+		ObservableList<Integer> seatOptions = FXCollections.observableArrayList();
+		for(int i = 0; i < flight.getEmptySeats(); i++){
+			seatOptions.add(i);
+		}
 	}
-
+	
+	public void setFlight(Flight flight){
+		this.flight = flight;
+	}
 }

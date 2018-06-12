@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.ArrayList;
 
 
-public class FlightsViewController {
+public class FlightsModifyListController {
 
 	@FXML TableView<Flight> flightsTable;
 	@FXML TableColumn<Flight, Integer> flightNumCol;
@@ -23,12 +23,11 @@ public class FlightsViewController {
 	@FXML TableColumn<Flight, String> arriveTimeCol;
 	@FXML TableColumn<Flight, Integer> seatsAvailable;
 
-	CommonController parentToNotify;
+	EmployeeCommonController parentToNotify;
 
 	public void initialize(){
 		DB db = DB.getDB();
 		// Associate Flight fields with table columns with JavaFX magic that somehow figures out method names
-		// TODO: Lookup depart city by route
 		flightNumCol.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("FlightId"));
 		dateCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartDate"));
 		departTimeCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartTime"));
@@ -43,7 +42,7 @@ public class FlightsViewController {
 				new ChangeListener<Number>() {
 					@Override
 					public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-						parentToNotify.handleBeginCheckout(flightsTable.getItems().get(newValue.intValue()));
+						parentToNotify.handleBeginModify(flightsTable.getItems().get(newValue.intValue()));
 					}
 				}
 		);
