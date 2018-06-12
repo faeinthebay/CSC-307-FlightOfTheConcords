@@ -16,6 +16,6 @@
       <ChoiceBox fx:id="departureCity" layoutX="160.0" layoutY="87.0" prefHeight="25.0" prefWidth="174.0" />
       <Label layoutX="52.0" layoutY="143.0" text="Arrival City" />
       <ChoiceBox fx:id="arrivalCity" layoutX="160.0" layoutY="139.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label fx:id="label" layoutX="178.0" layoutY="303.0" prefHeight="17.0" prefWidth="97.0" />
+      <Label fx:id="label" layoutX="100.0" layoutY="302.0" prefHeight="17.0" prefWidth="253.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>
