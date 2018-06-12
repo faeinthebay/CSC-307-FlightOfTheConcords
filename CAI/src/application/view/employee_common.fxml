@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EmployeeCommonController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EmployeeCommonController">
    <children>
       <TabPane fx:id="tabs" layoutY="80.0" prefHeight="520.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="homeTab" text="Home">
-            <content>
-              <AnchorPane fx:id="homePane" minHeight="0.0" minWidth="0.0" prefHeight="760.0" prefWidth="800.0" />
-            </content>
-          </Tab>
-          <Tab text="Flight Search">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-            <Tab text="Routes">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
             <Tab fx:id="flightsTab" text="Flights">
                <content>
                   <AnchorPane fx:id="flightsPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
@@ -34,6 +22,11 @@
                <content>
                   <AnchorPane fx:id="schedulerPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
+            </Tab>
+            <Tab fx:id="modifyFlightsTab" text="Modify">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                </content>
             </Tab>
             <Tab fx:id="accountTab" text="Accounts">
                <content>

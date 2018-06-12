@@ -4,18 +4,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TicketholderController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Tickethholder 1 information" />
-      <Label layoutX="166.0" layoutY="79.0" text="First name" />
-      <TextField layoutX="289.0" layoutY="71.0" />
-      <Label layoutX="166.0" layoutY="156.0" text="Last name" />
-      <TextField layoutX="289.0" layoutY="148.0" />
-      <Label layoutX="167.0" layoutY="231.0" text="Birthdate" />
-      <DatePicker layoutX="287.0" layoutY="223.0" />
-      <Label layoutX="167.0" layoutY="303.0" text="Phone #" />
-      <TextField layoutX="289.0" layoutY="295.0" />
-      <Button layoutX="681.0" layoutY="376.0" mnemonicParsing="false" text="Next" />
+      <Label layoutX="269.0" layoutY="14.0" text="Passenger(s) Information" />
+      <Label layoutX="14.0" layoutY="93.0" text="First name" />
+      <TextField layoutX="137.0" layoutY="85.0" prefHeight="51.0" prefWidth="174.0" />
+      <Label layoutX="14.0" layoutY="170.0" text="Last name" />
+      <TextField layoutX="137.0" layoutY="162.0" prefHeight="51.0" prefWidth="174.0" />
+      <Label layoutX="27.0" layoutY="245.0" text="Birthdate" />
+      <DatePicker layoutX="135.0" layoutY="237.0" prefHeight="51.0" prefWidth="174.0" />
+      <Label layoutX="36.0" layoutY="317.0" text="Phone #" />
+      <TextField layoutX="137.0" layoutY="309.0" prefHeight="51.0" prefWidth="174.0" />
+      <Button layoutX="704.0" layoutY="376.0" mnemonicParsing="false" text="Next" />
+      <TableView layoutX="400.0" layoutY="85.0" prefHeight="277.0" prefWidth="385.0">
+        <columns>
+          <TableColumn prefWidth="384.0" text="Passengers" />
+        </columns>
+      </TableView>
+      <Button layoutX="235.0" layoutY="376.0" mnemonicParsing="false" text="Add" />
    </children>
 </AnchorPane>

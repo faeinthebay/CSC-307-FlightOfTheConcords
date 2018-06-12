@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ModifyFlightController">
+   <children>
+      <Label layoutX="229.0" layoutY="14.0" text="Flight Scheduling Business Rules" />
+      <TextArea layoutX="21.0" layoutY="114.0" prefHeight="204.0" prefWidth="759.0" text="- Only one airplane can land on the runway at a time&#10;- There should be at least a 40 minute gap between each tackoff and landing&#10;- Each route has a standard flight duration and must be kept consistent through scheduling&#10;- It is required to have at least two round trip flights to each destination weekly" />
+      <Button layoutX="567.0" layoutY="397.0" mnemonicParsing="false" text="Begin scheduling" />
+   </children>
+</AnchorPane>

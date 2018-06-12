@@ -4,31 +4,26 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomerCommonController">
    <children>
-      <TabPane layoutY="80.0" prefHeight="520.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabs" layoutY="80.0" prefHeight="650.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Home">
+          <Tab fx:id="flightsTab" text="Flight Search">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="616.0" prefWidth="800.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="200.0" />
             </content>
           </Tab>
-          <Tab text="Flight Search">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-            <Tab text="My Flights">
+            <Tab fx:id="myFlightTab" text="My Flights">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Flight Status">
+            <Tab fx:id="flightStatusTab" text="Flight Status">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Check In">
+            <Tab fx:id="checkinTab" text="Check In">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
@@ -36,6 +31,6 @@
         </tabs>
       </TabPane>
       <Label layoutX="14.0" layoutY="14.0" text="Welcome CUSTOMER" />
-      <Button layoutX="675.0" layoutY="14.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="111.0" text="Logout" />
+      <Button layoutX="675.0" layoutY="14.0" mnemonicParsing="false" onAction="#HandleLogout" prefHeight="3.0" prefWidth="111.0" text="Logout" />
    </children>
 </AnchorPane>

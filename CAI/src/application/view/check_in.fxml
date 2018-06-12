@@ -16,13 +16,14 @@
             <TableColumn minWidth="82.0" prefWidth="140.0" text="Checked In" />
          </columns>
       </TableView>
-      <Label layoutX="39.0" layoutY="296.0" text="Flyer Name" />
-      <Label layoutX="317.0" layoutY="296.0" text="Seat" />
-      <ChoiceBox layoutX="317.0" layoutY="347.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="317.0" layoutY="422.0" prefWidth="150.0" />
       <Button layoutX="633.0" layoutY="565.0" mnemonicParsing="false" text="Check In" />
-      <ChoiceBox layoutX="558.0" layoutY="422.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="558.0" layoutY="347.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="545.0" layoutY="319.0" prefWidth="150.0" />
       <Label layoutX="558.0" layoutY="296.0" text="# of Bags" />
+      <TableView layoutX="45.0" layoutY="305.0" prefHeight="200.0" prefWidth="350.0">
+        <columns>
+          <TableColumn prefWidth="237.0" text="Passengers" />
+          <TableColumn prefWidth="112.0" text="Seats" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
