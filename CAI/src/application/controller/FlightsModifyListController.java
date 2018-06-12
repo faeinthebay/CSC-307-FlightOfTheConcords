@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 
@@ -24,9 +25,10 @@ public class FlightsModifyListController {
 	@FXML TableColumn<Flight, Integer> seatsAvailable;
 
 	EmployeeCommonController parentToNotify;
+	DB db;
 
 	public void initialize(){
-		DB db = DB.getDB();
+		db = DB.getDB();
 		// Associate Flight fields with table columns with JavaFX magic that somehow figures out method names
 		flightNumCol.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("FlightId"));
 		dateCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartDate"));
@@ -48,4 +50,9 @@ public class FlightsModifyListController {
 		);
 	}
 
+	public void HandleRefresh(javafx.event.ActionEvent actionEvent) {
+		flightsTable.getItems().clear();
+		ArrayList<Flight> flightList = db.getFlights();
+		flightsTable.getItems().addAll(flightList);
+	}
 }

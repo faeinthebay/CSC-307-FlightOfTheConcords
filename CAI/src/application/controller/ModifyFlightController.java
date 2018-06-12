@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
@@ -31,7 +32,9 @@ public class ModifyFlightController {
 	@FXML ComboBox statusField;
 	@FXML Button submitButton;
 
-	public void initialize(Flight flight, CommonController parentToNotify){
+	EmployeeCommonController parentToNotify;
+
+	public void initialize(Flight flight, EmployeeCommonController parentToNotify){
 		// Associate Flight fields with table columns with JavaFX magic that somehow figures out method names
 		flightNumCol.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("FlightId"));
 		dateCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartDate"));
@@ -45,14 +48,19 @@ public class ModifyFlightController {
 		statusField.setItems(statuses);
 		ObservableList<String> times = FXCollections.observableArrayList(FlightScheduler.getRunwayTimesList());
 		departureTimeField.setItems(times);
+		statusField.getSelectionModel().select(statuses.indexOf(flight.getStatus()));
+		departureTimeField.getSelectionModel().select(times.indexOf(flight.getDepartTime()));
+		departureDateField.setValue(flight.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+		Flight finalFlight = flight;
 		submitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
-				flight.changeDate(Date.from(departureDateField.getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
-				flight.setDepartTime(departureTimeField.getValue());
-				flight.updateStatus((String)(statusField.getValue()));
+			public void handle(ActionEvent event) { // TODO: Prefill fields
+				finalFlight.changeDate(Date.from(departureDateField.getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
+				finalFlight.setDepartTime(departureTimeField.getValue());
+				finalFlight.updateStatus((String)(statusField.getValue()));
 				DB db = DB.getDB();
-				db.updateFlight(flight);
+				db.updateFlight(finalFlight);
+				parentToNotify.backToMainModify();
 			}
 		});
 	}

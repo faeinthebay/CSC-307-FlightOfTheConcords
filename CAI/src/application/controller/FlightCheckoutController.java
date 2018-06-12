@@ -19,26 +19,25 @@ import java.util.ArrayList;
 public class FlightCheckoutController {
 
 	@FXML TableView<Flight> flightTable;
-	@FXML TableColumn<Flight, Integer> flightNumCol;
-	@FXML TableColumn<Flight, String> departCityCol;
-	@FXML TableColumn<Flight, String> dateCol;
-	@FXML TableColumn<Flight, String> departTimeCol;
-	@FXML TableColumn<Flight, String> arriveCityCol;
-	@FXML TableColumn<Flight, String> arriveTimeCol;
-	@FXML TableColumn<Flight, Integer> seatsAvailable;
-	@FXML Label seatPrice;
+	@FXML TableColumn<Flight, Integer> flightNumCol1;
+	@FXML TableColumn<Flight, String> departCityCol1;
+	@FXML TableColumn<Flight, String> dateCol1;
+	@FXML TableColumn<Flight, String> departTimeCol1;
+	@FXML TableColumn<Flight, String> arriveCityCol1;
+	@FXML TableColumn<Flight, String> arriveTimeCol1;
+	@FXML TableColumn<Flight, Integer> seatsAvailable2;
+	@FXML TableColumn<Flight, Integer> SeatPrice;
 	@FXML Label totalPrice;
 	@FXML ComboBox<Integer> numTicketsDesired;
 	@FXML Button beginCheckout;
 
 	public void initialize(Flight flight, CommonController parentToNotify){
 		// Associate Flight fields with table columns with JavaFX magic that somehow figures out method names
-		// TODO: Lookup depart city by route
-		flightNumCol.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("FlightId"));
-		dateCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartDate"));
-		departTimeCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartTime"));
-		arriveTimeCol.setCellValueFactory(new PropertyValueFactory<Flight, String>("ArrivalTime"));
-		seatsAvailable.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("EmptySeats"));
+		flightNumCol1.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("FlightId"));
+		dateCol1.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartDate"));
+		departTimeCol1.setCellValueFactory(new PropertyValueFactory<Flight, String>("DepartTime"));
+		arriveTimeCol1.setCellValueFactory(new PropertyValueFactory<Flight, String>("ArrivalTime"));
+		seatsAvailable2.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("EmptySeats"));
 		// Populate table
 		flightTable.getItems().clear();
 		flightTable.getItems().add(flight);
@@ -58,7 +57,7 @@ public class FlightCheckoutController {
 				}
 		);
 		// Populate form fields
-		seatPrice.setText(Integer.toString(flight.getPrice()));
+		SeatPrice.setText(Integer.toString(flight.getPrice()));
 		// Load next scene with next button
 		beginCheckout.setOnAction(new EventHandler<ActionEvent>() {
 			@Override

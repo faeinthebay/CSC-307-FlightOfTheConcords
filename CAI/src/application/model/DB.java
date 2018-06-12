@@ -154,11 +154,7 @@ public class DB {
 	public Flight getFlight(int flightId) {
 		Flight flight = null;
 		try {
-<<<<<<< HEAD
 			String sql = "SELECT flights.*,routes.duration, routes.origin, routes.destination FROM FLIGHTS,ROUTES WHERE flights.flightId=?";
-=======
-			String sql = "SELECT flights.*,routes., routes.origin, routes.destination FROM FLIGHTS,ROUTES WHERE flights.flightId=?";
->>>>>>> e7bc2f2642d990487aad396e68480fb5d8fe9021
 			preparedstatement = conn.prepareStatement(sql);
 			preparedstatement.setInt(1, flightId);
 			result = preparedstatement.executeQuery();

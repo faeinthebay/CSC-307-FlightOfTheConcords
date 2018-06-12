@@ -11,6 +11,7 @@
       <Label layoutX="14.0" layoutY="14.0" text="Scheduler" />
       <Label layoutX="42.0" layoutY="91.0" text="Departure City" />
       <ToggleButton fx:id="ScheduleFlight" layoutX="178.0" layoutY="259.0" mnemonicParsing="false" onAction="#HandleScheduleFlightButtonClick" text="Schedule Flight" />
+      <ToggleButton fx:id="BusinessRules" layoutX="178.0" layoutY="300.0" mnemonicParsing="false" onAction="#HandleBusinessRulesButtonClick" text="Show Business Rules" />
       <Label layoutX="52.0" layoutY="199.0" text="Flight Date" />
       <DatePicker fx:id="flightDate" layoutX="160.0" layoutY="195.0" />
       <ChoiceBox fx:id="departureCity" layoutX="160.0" layoutY="87.0" prefHeight="25.0" prefWidth="174.0" />

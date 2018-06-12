@@ -30,16 +30,18 @@ public class AccountsManagerController {
 	@FXML TableColumn<User, String> lastnameColumn;
 	@FXML TableColumn<User, String> isEmployeeColumn;
 
-	public void HandlePromotion(ActionEvent event) { // TODO: Refresh table when account promoted/demoted
+	public void HandlePromotion(ActionEvent event) {
 		DB db = DB.getDB();
 		db.updateUserPrivilege(new User(username.getText(), 1));
 		username.clear();
+		initialize();
 	}
 
 	public void HandleDemotion(ActionEvent event) {
 		DB db = DB.getDB();
 		db.updateUserPrivilege(new User(username.getText(), 0));
 		username.clear();
+		initialize();
 	}
 
 	public void initialize(){
@@ -51,6 +53,7 @@ public class AccountsManagerController {
 		// Populate table
 		DB db = DB.getDB();
 		ArrayList<User> userList = db.getAccounts();
+		userTable.getItems().clear();
 		userTable.getItems().addAll(userList);
 	}
 

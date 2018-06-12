@@ -24,9 +24,10 @@ public class FlightsViewController {
 	@FXML TableColumn<Flight, Integer> seatsAvailable;
 
 	CommonController parentToNotify;
+	DB db;
 
 	public void initialize(){
-		DB db = DB.getDB();
+		db = DB.getDB();
 		// Associate Flight fields with table columns with JavaFX magic that somehow figures out method names
 		// TODO: Lookup depart city by route
 		flightNumCol.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("FlightId"));
@@ -49,4 +50,9 @@ public class FlightsViewController {
 		);
 	}
 
+	public void HandleRefresh(javafx.event.ActionEvent actionEvent) {
+		flightsTable.getItems().clear();
+		ArrayList<Flight> flightList = db.getFlights();
+		flightsTable.getItems().addAll(flightList);
+	}
 }

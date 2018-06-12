@@ -12,7 +12,7 @@
       <Button fx:id="beginCheckout" layoutX="587.0" layoutY="525.0" mnemonicParsing="false" text="Begin Checkout" />
       <Label layoutX="93.0" layoutY="533.0" text="Total Price" />
       <Label fx:id="totalPrice" layoutX="215.0" layoutY="533.0" text="PRICE GOES HERE" />
-      <TableView fx:id="flightsTable" layoutY="43.0" prefHeight="372.0" prefWidth="800.0">
+      <TableView fx:id="flightTable" layoutY="43.0" prefHeight="372.0" prefWidth="800.0">
          <columns>
             <TableColumn fx:id="flightNumCol1" prefWidth="104.0" text="Flight #" />
             <TableColumn fx:id="dateCol1" prefWidth="96.0" text="Date" />
@@ -29,7 +29,7 @@
                </columns>
             </TableColumn>
             <TableColumn fx:id="seatsAvailable2" prefWidth="138.0" text="Avail. seats" />
-            <TableColumn fx:id="seatsAvailable1" prefWidth="101.0" text="Price" />
+            <TableColumn fx:id="SeatPrice" prefWidth="101.0" text="Price" />
          </columns>
       </TableView>
    </children>

@@ -44,7 +44,7 @@ public class EmployeeCommonController implements CommonController {
 			FXMLLoader modifyListLoader = new FXMLLoader(getClass().getResource("../view/employee_flight_modify_list.fxml"));
 			modifyFlightsTab.setContent(modifyListLoader.load());
 			FlightsModifyListController modifyListController = modifyListLoader.getController();
-			modifyListController.parentToNotify =this;
+			modifyListController.parentToNotify = this;
 			// Preload other scenes
 
 
@@ -111,6 +111,17 @@ public class EmployeeCommonController implements CommonController {
 			//checkoutController.parentToNotify = this;
 			modifyController.initialize(flight, this);
 		} catch (IOException e){
+
+		}
+	}
+
+	public void backToMainModify(){
+		try {
+			FXMLLoader modifyLoader = new FXMLLoader(getClass().getResource("../view/employee_flight_modify_list.fxml"));
+			modifyFlightsTab.setContent(modifyLoader.load());
+			FlightsModifyListController modifyListController = modifyLoader.getController();
+			modifyListController.parentToNotify = this;
+		}catch (IOException e){
 
 		}
 	}

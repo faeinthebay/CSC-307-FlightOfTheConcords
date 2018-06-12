@@ -71,7 +71,7 @@ public class EmployeeSchedulerController {
 				System.out.println("ELSE");
 			}
 			
-			Pane selectTimes = FXMLLoader.load(getClass().getResource("../view/purchase_confirmation.fxml"));
+			Pane selectTimes = FXMLLoader.load(getClass().getResource("../view/scheduler_time_picker.fxml"));
 			Stage stage = new Stage();
 			stage.setScene(new Scene(selectTimes));
 			stage.show();
@@ -80,6 +80,13 @@ public class EmployeeSchedulerController {
 		{
 			return;
 		}
+	}
+
+	public void HandleBusinessRulesButtonClick(ActionEvent event) throws Exception{
+		Pane rules = FXMLLoader.load(getClass().getResource("../view/employee_scheduler_business_rules.fxml"));
+		Stage stage = new Stage();
+		stage.setScene(new Scene(rules));
+		stage.show();
 	}
 
 }
